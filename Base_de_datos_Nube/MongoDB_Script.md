@@ -107,3 +107,92 @@ db.personas.insertMany([
 
 ### Multiplicar todos los registros que sean mayores a 20.
 `db.libros.updateMany({cantidad:{$gt:20}}, {$mul:{precio:2}})`
+
+### Alterar todo un documento.
+`db.libros.remplaceOne({_id:10},{titulo:"El queso", precio:53})`
+- Puede agregar o eliminar varios campos.
+
+### Eliminar un documento.
+`db.libros.deleteOne({titulo:"El queso"})`
+
+### Eliminar varios documentos.
+`db.libros.deleteMany({cantidad:{$gt:20}})`
+
+### Expresiones regulares.
+`db.libros.find({titulo:/t/})`
+
+`db.libros.find({titulo:/tos$})`
+- Las expresiones son lentas para evaluar y trare un resultado.
+
+### Operadosr $regex.
+`db.libros.find({titulo:{$regex:/Mongo/}})`
+
+### Operador con opciones.
+`db.libros.find({titulo:{$regex:/Mongo/, $option:'i'}})`
+
+### Ordenar con sort().
+`db.libros.find({},{titulo:1}).sort({titulo:1})`
+- Para mostras el resultado ordenado de forma ascendnete, se coloca un 1 dentro del sort.
+- Si se desea que el resultado sea de forma descendnete, se coloca un -1 dentro del sort.
+
+### Ordenar varios campos.
+`db.libros.find().sort({titulo:1, editorial:1})`
+- Se ordena primero por el título, posteriormente se ordena editorial.
+
+### Contar documentos.
+`db.libros.countDocuments()`
+
+### Agregaciones.
+#### Encontrorart un documento.
+```
+db.libros.aggregate(
+	[{$match: {editorial: "Biblio"}}
+)
+```
+
+#### Muestra los título y precios de la editorial Biblio mediante una proyectión.
+```
+db.lbros.aggregate([
+    {$match:{editorial:"Biblio"}}, 
+    {$project:{
+        _id:0, titulo:1, 
+        precio:1, 
+        "nombre Editorial":"$editorial"
+    }}
+])
+```
+
+#### Grupos con agregaciones.
+
+```
+db.libros.aggregate([
+    {$group:{_id: "$editorial", "Numero documentos":{$count:{}}}},
+    {$sort:{"Numero documentos":1}}
+])
+```
+
+#### Agregaciones y acumuladores.
+```
+db.libros.aggregate([
+    {$group:{id:"$editorial","numero de documentos":{$count:{}},"media":{$avg:"$precio"},"precio_maxima":{$max:"$precio"}}},
+    {$sort:{"precio máximo": 1}}
+])
+```
+
+#### Sacar la media media de un campo y utilizar la función $set para crear un nuevo campo.
+```
+db.libros.aggregate([
+    {$group:{-id:"properti type", numero:{$count:{}}, "media":{$avg:"$precio"}}},
+    {$set:{"media total":{$trunc:["$media", 2]}}},
+    {$out: "media_editoriales"}
+])
+```
+
+#### Sacar la media media de un campo y utilizar la función $set para crear un nuevo campo y el uso de $unset.
+```
+db.libros.aggregate([
+    {$group:{-id:"properti type", numero:{$count:{}}, "media":{$avg:"$precio"}}},
+    {$set:{"media total":{$trunc:["$media", 2]}}},
+    {$unset: "media_editoriales"}
+])
+```
