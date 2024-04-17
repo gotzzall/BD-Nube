@@ -1,0 +1,1252 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/8/2024 12:18:52 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="GALLARDOMSI"
+  DTS:CreatorName="GALLARDOMSI\jlgallardoadmon"
+  DTS:DTSID="{822647E8-F08B-4D02-9D23-D5B0CA7AF85B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{33BB7CFD-3857-42DC-B81F-67C97663D116}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-FLTK6F9.AdventureWorksDW2016]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{DBDE4225-DE77-46C5-A904-B1F01616C7BA}"
+      DTS:ObjectName="DESKTOP-FLTK6F9.AdventureWorksDW2016">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-FLTK6F9;Initial Catalog=AdventureWorksDW2016;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{DBDE4225-DE77-46C5-A904-B1F01616C7BA}DESKTOP-FLTK6F9.AdventureWorksDW2016;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gallardomsi.AdventureWorksDW2016]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{938D7345-06E1-428B-A1FA-723080810EA2}"
+      DTS:ObjectName="Gallardomsi.AdventureWorksDW2016">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=Gallardomsi;Initial Catalog=AdventureWorksDW2016;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{938D7345-06E1-428B-A1FA-723080810EA2}Gallardomsi.AdventureWorksDW2016;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[REPORTE ASCENDENTE]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{5AEE0768-490A-4753-996C-92BE63349652}"
+      DTS:ObjectName="REPORTE ASCENDENTE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="3082"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\uttt\bdcomputonube\practicasETL2\REPORTES\ReporteAscendente.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EnglishProductName"
+              DTS:DTSID="{81A6B2E8-3194-415B-BE21-BD9962FD26B0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EnglishProductCategoryName"
+              DTS:DTSID="{AF353F56-7F80-4101-A669-14BE4C0306DC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EnglishProductSubcategoryName"
+              DTS:DTSID="{B5C86BCD-17E4-47F6-8D8B-55B955FDA88A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UnitPrice"
+              DTS:DTSID="{D009D27A-61BD-44A9-AA0D-828C0672BB12}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SalesAmount"
+              DTS:DTSID="{F4A57E6C-D01E-4FDB-8F9E-D2FF710D460E}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[REPORTE DESCENDENTE]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{EB99F758-381F-406F-ABEA-AA895166B3C5}"
+      DTS:ObjectName="REPORTE DESCENDENTE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="3082"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\uttt\bdcomputonube\practicasETL2\REPORTES\Reporte descendente.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EnglishProductName"
+              DTS:DTSID="{989601F4-9CD2-4F69-A38D-7BA7A45AF4DB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EnglishProductCategoryName"
+              DTS:DTSID="{9D257822-1894-4776-9040-A98E42CF562C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EnglishProductSubcategoryName"
+              DTS:DTSID="{0733CB88-253C-4AAF-9017-AFE23FDB1E71}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UnitPrice"
+              DTS:DTSID="{A38D1303-6F28-4A46-AE30-8D52AF006FE7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SalesAmount"
+              DTS:DTSID="{81E0A2C1-51EE-4D27-8F21-5671E3467308}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ORDENAR"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{ADCD99A2-B8C1-485C-9A26-EB17F898A112}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ORDENAR"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ORDENAR\CARGAR DATA"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="CARGAR DATA"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT DP.EnglishProductName, DPC.EnglishProductCategoryName,
+		DPS.EnglishProductSubcategoryName, FRS.UnitPrice, FRS.SalesAmount
+FROM DimProduct DP INNER JOIN DimProductSubcategory DPS
+ON DP.ProductSubcategoryKey = DPS.ProductCategoryKey
+					INNER JOIN DimProductCategory DPC
+ON DPC.ProductCategoryKey=DPS.ProductCategoryKey
+					INNER JOIN FactResellerSales FRS
+ON FRS.ProductKey=DP.ProductKey</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ORDENAR\CARGAR DATA.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Gallardomsi.AdventureWorksDW2016]"
+                  connectionManagerRefId="Package.ConnectionManagers[Gallardomsi.AdventureWorksDW2016]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[EnglishProductName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].ExternalColumns[EnglishProductName]"
+                      length="50"
+                      lineageId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[EnglishProductName]"
+                      name="EnglishProductName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[EnglishProductCategoryName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].ExternalColumns[EnglishProductCategoryName]"
+                      length="50"
+                      lineageId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[EnglishProductCategoryName]"
+                      name="EnglishProductCategoryName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[EnglishProductSubcategoryName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].ExternalColumns[EnglishProductSubcategoryName]"
+                      length="50"
+                      lineageId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[EnglishProductSubcategoryName]"
+                      name="EnglishProductSubcategoryName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[UnitPrice]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].ExternalColumns[UnitPrice]"
+                      lineageId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[UnitPrice]"
+                      name="UnitPrice"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[SalesAmount]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].ExternalColumns[SalesAmount]"
+                      lineageId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[SalesAmount]"
+                      name="SalesAmount"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].ExternalColumns[EnglishProductName]"
+                      dataType="wstr"
+                      length="50"
+                      name="EnglishProductName" />
+                    <externalMetadataColumn
+                      refId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].ExternalColumns[EnglishProductCategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      name="EnglishProductCategoryName" />
+                    <externalMetadataColumn
+                      refId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].ExternalColumns[EnglishProductSubcategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      name="EnglishProductSubcategoryName" />
+                    <externalMetadataColumn
+                      refId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].ExternalColumns[UnitPrice]"
+                      dataType="cy"
+                      name="UnitPrice" />
+                    <externalMetadataColumn
+                      refId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].ExternalColumns[SalesAmount]"
+                      dataType="cy"
+                      name="SalesAmount" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de error de origen de OLE DB].Columns[EnglishProductName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de error de origen de OLE DB].Columns[EnglishProductName]"
+                      name="EnglishProductName" />
+                    <outputColumn
+                      refId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de error de origen de OLE DB].Columns[EnglishProductCategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de error de origen de OLE DB].Columns[EnglishProductCategoryName]"
+                      name="EnglishProductCategoryName" />
+                    <outputColumn
+                      refId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de error de origen de OLE DB].Columns[EnglishProductSubcategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de error de origen de OLE DB].Columns[EnglishProductSubcategoryName]"
+                      name="EnglishProductSubcategoryName" />
+                    <outputColumn
+                      refId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de error de origen de OLE DB].Columns[UnitPrice]"
+                      dataType="cy"
+                      lineageId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de error de origen de OLE DB].Columns[UnitPrice]"
+                      name="UnitPrice" />
+                    <outputColumn
+                      refId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de error de origen de OLE DB].Columns[SalesAmount]"
+                      dataType="cy"
+                      lineageId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de error de origen de OLE DB].Columns[SalesAmount]"
+                      name="SalesAmount" />
+                    <outputColumn
+                      refId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ORDENAR\DATOS ORDENADOS ASCENDENTE"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Destino de archivo plano;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Destino de archivo plano"
+              localeId="3082"
+              name="DATOS ORDENADOS ASCENDENTE"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si los datos sobrescriben el archivo de destino o se anexan al mismo."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Especifica el texto para escribir en el archivo de destino antes de escribir ningún dato."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="Cuando el calificador de texto está habilitado, especifica si este contendrá secuencias de escape o no en los datos escritos en el archivo de destino."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ORDENAR\DATOS ORDENADOS ASCENDENTE.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[REPORTE ASCENDENTE]"
+                  connectionManagerRefId="Package.ConnectionManagers[REPORTE ASCENDENTE]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ORDENAR\DATOS ORDENADOS ASCENDENTE.Inputs[Entrada de destino de archivo plano]"
+                  hasSideEffects="true"
+                  name="Entrada de destino de archivo plano">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ORDENAR\DATOS ORDENADOS ASCENDENTE.Inputs[Entrada de destino de archivo plano].Columns[EnglishProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EnglishProductName"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\ORDENAR\DATOS ORDENADOS ASCENDENTE.Inputs[Entrada de destino de archivo plano].ExternalColumns[EnglishProductName]"
+                      lineageId="Package\ORDENAR\ORDENAR ASCENDENTE.Outputs[Salida de ordenación].Columns[EnglishProductName]" />
+                    <inputColumn
+                      refId="Package\ORDENAR\DATOS ORDENADOS ASCENDENTE.Inputs[Entrada de destino de archivo plano].Columns[EnglishProductCategoryName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EnglishProductCategoryName"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\ORDENAR\DATOS ORDENADOS ASCENDENTE.Inputs[Entrada de destino de archivo plano].ExternalColumns[EnglishProductCategoryName]"
+                      lineageId="Package\ORDENAR\ORDENAR ASCENDENTE.Outputs[Salida de ordenación].Columns[EnglishProductCategoryName]" />
+                    <inputColumn
+                      refId="Package\ORDENAR\DATOS ORDENADOS ASCENDENTE.Inputs[Entrada de destino de archivo plano].Columns[EnglishProductSubcategoryName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EnglishProductSubcategoryName"
+                      externalMetadataColumnId="Package\ORDENAR\DATOS ORDENADOS ASCENDENTE.Inputs[Entrada de destino de archivo plano].ExternalColumns[EnglishProductSubcategoryName]"
+                      lineageId="Package\ORDENAR\ORDENAR ASCENDENTE.Outputs[Salida de ordenación].Columns[EnglishProductSubcategoryName]" />
+                    <inputColumn
+                      refId="Package\ORDENAR\DATOS ORDENADOS ASCENDENTE.Inputs[Entrada de destino de archivo plano].Columns[UnitPrice]"
+                      cachedDataType="cy"
+                      cachedName="UnitPrice"
+                      externalMetadataColumnId="Package\ORDENAR\DATOS ORDENADOS ASCENDENTE.Inputs[Entrada de destino de archivo plano].ExternalColumns[UnitPrice]"
+                      lineageId="Package\ORDENAR\ORDENAR ASCENDENTE.Outputs[Salida de ordenación].Columns[UnitPrice]" />
+                    <inputColumn
+                      refId="Package\ORDENAR\DATOS ORDENADOS ASCENDENTE.Inputs[Entrada de destino de archivo plano].Columns[SalesAmount]"
+                      cachedDataType="cy"
+                      cachedName="SalesAmount"
+                      externalMetadataColumnId="Package\ORDENAR\DATOS ORDENADOS ASCENDENTE.Inputs[Entrada de destino de archivo plano].ExternalColumns[SalesAmount]"
+                      lineageId="Package\ORDENAR\ORDENAR ASCENDENTE.Outputs[Salida de ordenación].Columns[SalesAmount]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ORDENAR\DATOS ORDENADOS ASCENDENTE.Inputs[Entrada de destino de archivo plano].ExternalColumns[EnglishProductName]"
+                      dataType="wstr"
+                      length="50"
+                      name="EnglishProductName" />
+                    <externalMetadataColumn
+                      refId="Package\ORDENAR\DATOS ORDENADOS ASCENDENTE.Inputs[Entrada de destino de archivo plano].ExternalColumns[EnglishProductCategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      name="EnglishProductCategoryName" />
+                    <externalMetadataColumn
+                      refId="Package\ORDENAR\DATOS ORDENADOS ASCENDENTE.Inputs[Entrada de destino de archivo plano].ExternalColumns[EnglishProductSubcategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      name="EnglishProductSubcategoryName" />
+                    <externalMetadataColumn
+                      refId="Package\ORDENAR\DATOS ORDENADOS ASCENDENTE.Inputs[Entrada de destino de archivo plano].ExternalColumns[UnitPrice]"
+                      dataType="cy"
+                      name="UnitPrice" />
+                    <externalMetadataColumn
+                      refId="Package\ORDENAR\DATOS ORDENADOS ASCENDENTE.Inputs[Entrada de destino de archivo plano].ExternalColumns[SalesAmount]"
+                      dataType="cy"
+                      name="SalesAmount" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\ORDENAR\DATOS ORDENADOS DESCENDENTE"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Destino de archivo plano;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Destino de archivo plano"
+              localeId="3082"
+              name="DATOS ORDENADOS DESCENDENTE"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si los datos sobrescriben el archivo de destino o se anexan al mismo."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Especifica el texto para escribir en el archivo de destino antes de escribir ningún dato."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="Cuando el calificador de texto está habilitado, especifica si este contendrá secuencias de escape o no en los datos escritos en el archivo de destino."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ORDENAR\DATOS ORDENADOS DESCENDENTE.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[REPORTE DESCENDENTE]"
+                  connectionManagerRefId="Package.ConnectionManagers[REPORTE DESCENDENTE]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ORDENAR\DATOS ORDENADOS DESCENDENTE.Inputs[Entrada de destino de archivo plano]"
+                  hasSideEffects="true"
+                  name="Entrada de destino de archivo plano">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ORDENAR\DATOS ORDENADOS DESCENDENTE.Inputs[Entrada de destino de archivo plano].Columns[EnglishProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EnglishProductName"
+                      cachedSortKeyPosition="-1"
+                      externalMetadataColumnId="Package\ORDENAR\DATOS ORDENADOS DESCENDENTE.Inputs[Entrada de destino de archivo plano].ExternalColumns[EnglishProductName]"
+                      lineageId="Package\ORDENAR\ORDENAR DESCENDENTE.Outputs[Salida de ordenación].Columns[EnglishProductName]" />
+                    <inputColumn
+                      refId="Package\ORDENAR\DATOS ORDENADOS DESCENDENTE.Inputs[Entrada de destino de archivo plano].Columns[EnglishProductCategoryName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EnglishProductCategoryName"
+                      cachedSortKeyPosition="-2"
+                      externalMetadataColumnId="Package\ORDENAR\DATOS ORDENADOS DESCENDENTE.Inputs[Entrada de destino de archivo plano].ExternalColumns[EnglishProductCategoryName]"
+                      lineageId="Package\ORDENAR\ORDENAR DESCENDENTE.Outputs[Salida de ordenación].Columns[EnglishProductCategoryName]" />
+                    <inputColumn
+                      refId="Package\ORDENAR\DATOS ORDENADOS DESCENDENTE.Inputs[Entrada de destino de archivo plano].Columns[EnglishProductSubcategoryName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EnglishProductSubcategoryName"
+                      externalMetadataColumnId="Package\ORDENAR\DATOS ORDENADOS DESCENDENTE.Inputs[Entrada de destino de archivo plano].ExternalColumns[EnglishProductSubcategoryName]"
+                      lineageId="Package\ORDENAR\ORDENAR DESCENDENTE.Outputs[Salida de ordenación].Columns[EnglishProductSubcategoryName]" />
+                    <inputColumn
+                      refId="Package\ORDENAR\DATOS ORDENADOS DESCENDENTE.Inputs[Entrada de destino de archivo plano].Columns[UnitPrice]"
+                      cachedDataType="cy"
+                      cachedName="UnitPrice"
+                      externalMetadataColumnId="Package\ORDENAR\DATOS ORDENADOS DESCENDENTE.Inputs[Entrada de destino de archivo plano].ExternalColumns[UnitPrice]"
+                      lineageId="Package\ORDENAR\ORDENAR DESCENDENTE.Outputs[Salida de ordenación].Columns[UnitPrice]" />
+                    <inputColumn
+                      refId="Package\ORDENAR\DATOS ORDENADOS DESCENDENTE.Inputs[Entrada de destino de archivo plano].Columns[SalesAmount]"
+                      cachedDataType="cy"
+                      cachedName="SalesAmount"
+                      externalMetadataColumnId="Package\ORDENAR\DATOS ORDENADOS DESCENDENTE.Inputs[Entrada de destino de archivo plano].ExternalColumns[SalesAmount]"
+                      lineageId="Package\ORDENAR\ORDENAR DESCENDENTE.Outputs[Salida de ordenación].Columns[SalesAmount]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ORDENAR\DATOS ORDENADOS DESCENDENTE.Inputs[Entrada de destino de archivo plano].ExternalColumns[EnglishProductName]"
+                      dataType="wstr"
+                      length="50"
+                      name="EnglishProductName" />
+                    <externalMetadataColumn
+                      refId="Package\ORDENAR\DATOS ORDENADOS DESCENDENTE.Inputs[Entrada de destino de archivo plano].ExternalColumns[EnglishProductCategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      name="EnglishProductCategoryName" />
+                    <externalMetadataColumn
+                      refId="Package\ORDENAR\DATOS ORDENADOS DESCENDENTE.Inputs[Entrada de destino de archivo plano].ExternalColumns[EnglishProductSubcategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      name="EnglishProductSubcategoryName" />
+                    <externalMetadataColumn
+                      refId="Package\ORDENAR\DATOS ORDENADOS DESCENDENTE.Inputs[Entrada de destino de archivo plano].ExternalColumns[UnitPrice]"
+                      dataType="cy"
+                      name="UnitPrice" />
+                    <externalMetadataColumn
+                      refId="Package\ORDENAR\DATOS ORDENADOS DESCENDENTE.Inputs[Entrada de destino de archivo plano].ExternalColumns[SalesAmount]"
+                      dataType="cy"
+                      name="SalesAmount" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\ORDENAR\Multidifusión"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multidifusión;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Distribuye cada fila de entrada a cada una de las filas de una o varias salidas. Por ejemplo, se crea una bifurcación de un flujo de datos para realizar una copia de los datos de modo que se puedan enmascarar algunos valores antes de compartirlos con los asociados externos."
+              name="Multidifusión">
+              <inputs>
+                <input
+                  refId="Package\ORDENAR\Multidifusión.Inputs[Entrada de Multidifusión 1]"
+                  name="Entrada de Multidifusión 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ORDENAR\Multidifusión.Outputs[Salida de Multidifusión 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Salida de Multidifusión 1"
+                  synchronousInputId="Package\ORDENAR\Multidifusión.Inputs[Entrada de Multidifusión 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ORDENAR\Multidifusión.Outputs[Salida de multidifusión 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Salida de multidifusión 1"
+                  synchronousInputId="Package\ORDENAR\Multidifusión.Inputs[Entrada de Multidifusión 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ORDENAR\Multidifusión.Outputs[Salida de multidifusión 2]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Salida de multidifusión 2"
+                  synchronousInputId="Package\ORDENAR\Multidifusión.Inputs[Entrada de Multidifusión 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ORDENAR\ORDENAR ASCENDENTE"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="ORDENAR ASCENDENTE"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\ORDENAR\ORDENAR ASCENDENTE.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ORDENAR\ORDENAR ASCENDENTE.Inputs[Entrada de ordenación].Columns[EnglishProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EnglishProductName"
+                      lineageId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[EnglishProductName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ORDENAR\ORDENAR ASCENDENTE.Inputs[Entrada de ordenación].Columns[EnglishProductCategoryName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EnglishProductCategoryName"
+                      lineageId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[EnglishProductCategoryName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ORDENAR\ORDENAR ASCENDENTE.Inputs[Entrada de ordenación].Columns[EnglishProductSubcategoryName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EnglishProductSubcategoryName"
+                      lineageId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[EnglishProductSubcategoryName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ORDENAR\ORDENAR ASCENDENTE.Inputs[Entrada de ordenación].Columns[UnitPrice]"
+                      cachedDataType="cy"
+                      cachedName="UnitPrice"
+                      lineageId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[UnitPrice]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ORDENAR\ORDENAR ASCENDENTE.Inputs[Entrada de ordenación].Columns[SalesAmount]"
+                      cachedDataType="cy"
+                      cachedName="SalesAmount"
+                      lineageId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[SalesAmount]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ORDENAR\ORDENAR ASCENDENTE.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ORDENAR\ORDENAR ASCENDENTE.Outputs[Salida de ordenación].Columns[EnglishProductName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ORDENAR\ORDENAR ASCENDENTE.Outputs[Salida de ordenación].Columns[EnglishProductName]"
+                      name="EnglishProductName"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[EnglishProductName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ORDENAR\ORDENAR ASCENDENTE.Outputs[Salida de ordenación].Columns[EnglishProductCategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ORDENAR\ORDENAR ASCENDENTE.Outputs[Salida de ordenación].Columns[EnglishProductCategoryName]"
+                      name="EnglishProductCategoryName"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[EnglishProductCategoryName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ORDENAR\ORDENAR ASCENDENTE.Outputs[Salida de ordenación].Columns[EnglishProductSubcategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ORDENAR\ORDENAR ASCENDENTE.Outputs[Salida de ordenación].Columns[EnglishProductSubcategoryName]"
+                      name="EnglishProductSubcategoryName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[EnglishProductSubcategoryName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ORDENAR\ORDENAR ASCENDENTE.Outputs[Salida de ordenación].Columns[UnitPrice]"
+                      dataType="cy"
+                      lineageId="Package\ORDENAR\ORDENAR ASCENDENTE.Outputs[Salida de ordenación].Columns[UnitPrice]"
+                      name="UnitPrice">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[UnitPrice]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ORDENAR\ORDENAR ASCENDENTE.Outputs[Salida de ordenación].Columns[SalesAmount]"
+                      dataType="cy"
+                      lineageId="Package\ORDENAR\ORDENAR ASCENDENTE.Outputs[Salida de ordenación].Columns[SalesAmount]"
+                      name="SalesAmount">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[SalesAmount]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ORDENAR\ORDENAR DESCENDENTE"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="ORDENAR DESCENDENTE"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\ORDENAR\ORDENAR DESCENDENTE.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ORDENAR\ORDENAR DESCENDENTE.Inputs[Entrada de ordenación].Columns[EnglishProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EnglishProductName"
+                      lineageId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[EnglishProductName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">-1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ORDENAR\ORDENAR DESCENDENTE.Inputs[Entrada de ordenación].Columns[EnglishProductCategoryName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EnglishProductCategoryName"
+                      lineageId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[EnglishProductCategoryName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">-2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ORDENAR\ORDENAR DESCENDENTE.Inputs[Entrada de ordenación].Columns[EnglishProductSubcategoryName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EnglishProductSubcategoryName"
+                      lineageId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[EnglishProductSubcategoryName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ORDENAR\ORDENAR DESCENDENTE.Inputs[Entrada de ordenación].Columns[UnitPrice]"
+                      cachedDataType="cy"
+                      cachedName="UnitPrice"
+                      lineageId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[UnitPrice]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ORDENAR\ORDENAR DESCENDENTE.Inputs[Entrada de ordenación].Columns[SalesAmount]"
+                      cachedDataType="cy"
+                      cachedName="SalesAmount"
+                      lineageId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[SalesAmount]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ORDENAR\ORDENAR DESCENDENTE.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ORDENAR\ORDENAR DESCENDENTE.Outputs[Salida de ordenación].Columns[EnglishProductName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ORDENAR\ORDENAR DESCENDENTE.Outputs[Salida de ordenación].Columns[EnglishProductName]"
+                      name="EnglishProductName"
+                      sortKeyPosition="-1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[EnglishProductName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ORDENAR\ORDENAR DESCENDENTE.Outputs[Salida de ordenación].Columns[EnglishProductCategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ORDENAR\ORDENAR DESCENDENTE.Outputs[Salida de ordenación].Columns[EnglishProductCategoryName]"
+                      name="EnglishProductCategoryName"
+                      sortKeyPosition="-2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[EnglishProductCategoryName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ORDENAR\ORDENAR DESCENDENTE.Outputs[Salida de ordenación].Columns[EnglishProductSubcategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ORDENAR\ORDENAR DESCENDENTE.Outputs[Salida de ordenación].Columns[EnglishProductSubcategoryName]"
+                      name="EnglishProductSubcategoryName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[EnglishProductSubcategoryName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ORDENAR\ORDENAR DESCENDENTE.Outputs[Salida de ordenación].Columns[UnitPrice]"
+                      dataType="cy"
+                      lineageId="Package\ORDENAR\ORDENAR DESCENDENTE.Outputs[Salida de ordenación].Columns[UnitPrice]"
+                      name="UnitPrice">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[UnitPrice]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ORDENAR\ORDENAR DESCENDENTE.Outputs[Salida de ordenación].Columns[SalesAmount]"
+                      dataType="cy"
+                      lineageId="Package\ORDENAR\ORDENAR DESCENDENTE.Outputs[Salida de ordenación].Columns[SalesAmount]"
+                      name="SalesAmount">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB].Columns[SalesAmount]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ORDENAR.Paths[Salida de Multidifusión 1]"
+              endId="Package\ORDENAR\ORDENAR ASCENDENTE.Inputs[Entrada de ordenación]"
+              name="Salida de Multidifusión 1"
+              startId="Package\ORDENAR\Multidifusión.Outputs[Salida de Multidifusión 1]" />
+            <path
+              refId="Package\ORDENAR.Paths[Salida de multidifusión 1]"
+              endId="Package\ORDENAR\ORDENAR DESCENDENTE.Inputs[Entrada de ordenación]"
+              name="Salida de multidifusión 1"
+              startId="Package\ORDENAR\Multidifusión.Outputs[Salida de multidifusión 1]" />
+            <path
+              refId="Package\ORDENAR.Paths[Salida de ordenación]"
+              endId="Package\ORDENAR\DATOS ORDENADOS ASCENDENTE.Inputs[Entrada de destino de archivo plano]"
+              name="Salida de ordenación"
+              startId="Package\ORDENAR\ORDENAR ASCENDENTE.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\ORDENAR.Paths[Salida de ordenación1]"
+              endId="Package\ORDENAR\DATOS ORDENADOS DESCENDENTE.Inputs[Entrada de destino de archivo plano]"
+              name="Salida de ordenación"
+              startId="Package\ORDENAR\ORDENAR DESCENDENTE.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\ORDENAR.Paths[Salida de origen de OLE DB]"
+              endId="Package\ORDENAR\Multidifusión.Inputs[Entrada de Multidifusión 1]"
+              name="Salida de origen de OLE DB"
+              startId="Package\ORDENAR\CARGAR DATA.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="130.4,41.6"
+          Id="Package\ORDENAR"
+          TopLeft="453.333308564293,49.3999996564786" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\ORDENAR">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="257.6,41.6"
+          Id="Package\ORDENAR\DATOS ORDENADOS ASCENDENTE"
+          TopLeft="84.999995355805,367.466664111349" />
+        <NodeLayout
+          Size="265.6,41.6"
+          Id="Package\ORDENAR\DATOS ORDENADOS DESCENDENTE"
+          TopLeft="644.166631470953,365.799997884631" />
+        <NodeLayout
+          Size="136.8,41.6"
+          Id="Package\ORDENAR\Multidifusión"
+          TopLeft="450.833308700887,152.533332272636" />
+        <NodeLayout
+          Size="212,41.6"
+          Id="Package\ORDENAR\ORDENAR DESCENDENTE"
+          TopLeft="588.333301188219,254.799998228153" />
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\ORDENAR\CARGAR DATA"
+          TopLeft="442.499975822867,39.8666663894389" />
+        <NodeLayout
+          Size="204,41.6"
+          Id="Package\ORDENAR\ORDENAR ASCENDENTE"
+          TopLeft="193.333322770066,231.399998390873" />
+        <EdgeLayout
+          Id="Package\ORDENAR.Paths[Salida de origen de OLE DB]"
+          TopLeft="519.266642261877,81.4666663894389">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71.0666658831968"
+              Start="0,0"
+              End="0,63.5666658831968">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.5666658831968" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ORDENAR.Paths[Salida de ordenación1]"
+          TopLeft="694.333301188219,296.399998228153">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="82.6333302827344,69.3999996564785"
+              Start="0,0"
+              End="82.6333302827344,61.8999996564785">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.6999998282392" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.6999998282392"
+                    Point2="0,34.6999998282392"
+                    Point3="4,34.6999998282392" />
+                  <mssgle:LineSegment
+                    End="78.6333302827344,34.6999998282392" />
+                  <mssgle:CubicBezierSegment
+                    Point1="78.6333302827344,34.6999998282392"
+                    Point2="82.6333302827344,34.6999998282392"
+                    Point3="82.6333302827344,38.6999998282392" />
+                  <mssgle:LineSegment
+                    End="82.6333302827344,61.8999996564785" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ORDENAR.Paths[Salida de ordenación]"
+          TopLeft="295.333322770066,272.999998390873">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-81.5333274142612,94.4666657204759"
+              Start="0,0"
+              End="-81.5333274142612,86.9666657204759">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.233332860238" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.233332860238"
+                    Point2="0,47.233332860238"
+                    Point3="-4,47.233332860238" />
+                  <mssgle:LineSegment
+                    End="-77.5333274142612,47.233332860238" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-77.5333274142612,47.233332860238"
+                    Point2="-81.5333274142612,47.233332860238"
+                    Point3="-81.5333274142612,51.233332860238" />
+                  <mssgle:LineSegment
+                    End="-81.5333274142612,86.9666657204759" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ORDENAR.Paths[Salida de multidifusión 1]"
+          TopLeft="540.699975367554,194.133332272636">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="153.633325820665,60.666665955517"
+              Start="0,0"
+              End="153.633325820665,53.166665955517">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.6874756258289" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.6874756258289"
+                    Point2="0,24.6874756258289"
+                    Point3="4,24.6874756258289" />
+                  <mssgle:LineSegment
+                    End="149.633325820665,24.6874756258289" />
+                  <mssgle:CubicBezierSegment
+                    Point1="149.633325820665,24.6874756258289"
+                    Point2="153.633325820665,24.6874756258289"
+                    Point3="153.633325820665,28.6874756258289" />
+                  <mssgle:LineSegment
+                    End="153.633325820665,53.166665955517" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ORDENAR.Paths[Salida de Multidifusión 1]"
+          TopLeft="497.76664203422,194.133332272636">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-202.433319264154,37.2666661182377"
+              Start="0,0"
+              End="-202.433319264154,29.7666661182377">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.1651635533175" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.1651635533175"
+                    Point2="0,15.1651635533175"
+                    Point3="-4,15.1651635533175" />
+                  <mssgle:LineSegment
+                    End="-198.433319264154,15.1651635533175" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-198.433319264154,15.1651635533175"
+                    Point2="-202.433319264154,15.1651635533175"
+                    Point3="-202.433319264154,19.1651635533175" />
+                  <mssgle:LineSegment
+                    End="-202.433319264154,29.7666661182377" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ORDENAR\CARGAR DATA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

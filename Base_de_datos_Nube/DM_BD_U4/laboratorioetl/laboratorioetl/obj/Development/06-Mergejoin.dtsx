@@ -1,0 +1,2335 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/10/2024 11:06:09 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="GALLARDOMSI"
+  DTS:CreatorName="GALLARDOMSI\jlgallardoadmon"
+  DTS:DTSID="{1A60B0DC-93B1-4792-A5A0-7FF1A833CF26}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{D38AD146-140F-4DC7-BFFA-44571F5572D3}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gallardomsi.AdventureWorksDW2016]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E8081D7E-0410-4969-939C-B721CE4BDB1B}"
+      DTS:ObjectName="Gallardomsi.AdventureWorksDW2016">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=Gallardomsi;Initial Catalog=AdventureWorksDW2016;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{E8081D7E-0410-4969-939C-B721CE4BDB1B}Gallardomsi.AdventureWorksDW2016;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[REPORTE VENTAS]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{2E75CBA5-D0B6-4A40-ACB4-6D029D2C2B35}"
+      DTS:ObjectName="REPORTE VENTAS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="3082"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\uttt\bdcomputonube\practicasETL\Documentacion\02- DataFlow\05-mergejoin\REPORTE VENTAS1.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Nombre Producto Ingles"
+              DTS:DTSID="{8788FAD2-A811-427C-834B-BC9FE3ECB34C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EnglishProductSubcategoryName"
+              DTS:DTSID="{FE946111-1D6E-4017-9D74-8EB786942525}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EnglishProductCategoryName"
+              DTS:DTSID="{E45AA62A-7C07-47B1-87EB-BD4A78F15299}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Precio Unitario"
+              DTS:DTSID="{1A25D7E0-4D4F-4DD3-91F3-0DE1DE96EC51}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Monto de la Venta"
+              DTS:DTSID="{EFA2D1D7-BF63-4C83-AB7B-F030AC977BAF}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\MERGE JOIN"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{DD8A490E-40FC-4457-AB90-416F2D990328}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="MERGE JOIN"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\MERGE JOIN\Combinación de mezcla"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Combinación de mezcla;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Combina dos flujos de datos ordenados en uno solo mediante la combinación FULL, LEFT o INNER. Se recomienda esta transformación cuando se pueden ordenar los flujos de datos en sus orígenes."
+              name="Combinación de mezcla"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de combinación que se debe realizar."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número de columnas de la clave de ordenación."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores NULL se tratan como valores iguales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indica la cantidad máxima solicitada de búferes por entrada antes del bloqueo."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\MERGE JOIN\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada izquierda de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\MERGE JOIN\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[ProductSubcategoryKey]"
+                      cachedDataType="i4"
+                      cachedName="ProductSubcategoryKey"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\MERGE JOIN\DIM PRODUCTO ORDENADO.Outputs[Salida de ordenación].Columns[ProductSubcategoryKey]" />
+                    <inputColumn
+                      refId="Package\MERGE JOIN\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[ProductKey]"
+                      cachedDataType="i4"
+                      cachedName="ProductKey"
+                      lineageId="Package\MERGE JOIN\DIM PRODUCTO ORDENADO.Outputs[Salida de ordenación].Columns[ProductKey]" />
+                    <inputColumn
+                      refId="Package\MERGE JOIN\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[EnglishProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EnglishProductName"
+                      lineageId="Package\MERGE JOIN\DIM PRODUCTO ORDENADO.Outputs[Salida de ordenación].Columns[EnglishProductName]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\MERGE JOIN\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada derecha de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\MERGE JOIN\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[ProductSubcategoryKey]"
+                      cachedDataType="i4"
+                      cachedName="ProductSubcategoryKey"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\MERGE JOIN\DimProductSubcategory.Outputs[Salida de origen de OLE DB].Columns[ProductSubcategoryKey]" />
+                    <inputColumn
+                      refId="Package\MERGE JOIN\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[ProductCategoryKey]"
+                      cachedDataType="i4"
+                      cachedName="ProductCategoryKey"
+                      lineageId="Package\MERGE JOIN\DimProductSubcategory.Outputs[Salida de origen de OLE DB].Columns[ProductCategoryKey]" />
+                    <inputColumn
+                      refId="Package\MERGE JOIN\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[EnglishProductSubcategoryName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EnglishProductSubcategoryName"
+                      lineageId="Package\MERGE JOIN\DimProductSubcategory.Outputs[Salida de origen de OLE DB].Columns[EnglishProductSubcategoryName]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\MERGE JOIN\Combinación de mezcla.Outputs[Salida de combinación de mezcla]"
+                  name="Salida de combinación de mezcla">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ProductKey]"
+                      dataType="i4"
+                      lineageId="Package\MERGE JOIN\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ProductKey]"
+                      name="ProductKey">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\MERGE JOIN\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[ProductKey]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[EnglishProductName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\MERGE JOIN\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[EnglishProductName]"
+                      name="EnglishProductName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\MERGE JOIN\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[EnglishProductName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ProductCategoryKey]"
+                      dataType="i4"
+                      lineageId="Package\MERGE JOIN\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ProductCategoryKey]"
+                      name="ProductCategoryKey">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\MERGE JOIN\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[ProductCategoryKey]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[EnglishProductSubcategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\MERGE JOIN\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[EnglishProductSubcategoryName]"
+                      name="EnglishProductSubcategoryName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\MERGE JOIN\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[EnglishProductSubcategoryName]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\MERGE JOIN\DIM PRODUCTO ORDENADO"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="DIM PRODUCTO ORDENADO"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\MERGE JOIN\DIM PRODUCTO ORDENADO.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\MERGE JOIN\DIM PRODUCTO ORDENADO.Inputs[Entrada de ordenación].Columns[ProductKey]"
+                      cachedDataType="i4"
+                      cachedName="ProductKey"
+                      lineageId="Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de origen de OLE DB].Columns[ProductKey]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\MERGE JOIN\DIM PRODUCTO ORDENADO.Inputs[Entrada de ordenación].Columns[ProductSubcategoryKey]"
+                      cachedDataType="i4"
+                      cachedName="ProductSubcategoryKey"
+                      lineageId="Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de origen de OLE DB].Columns[ProductSubcategoryKey]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\MERGE JOIN\DIM PRODUCTO ORDENADO.Inputs[Entrada de ordenación].Columns[EnglishProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EnglishProductName"
+                      lineageId="Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de origen de OLE DB].Columns[EnglishProductName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\MERGE JOIN\DIM PRODUCTO ORDENADO.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\DIM PRODUCTO ORDENADO.Outputs[Salida de ordenación].Columns[ProductKey]"
+                      dataType="i4"
+                      lineageId="Package\MERGE JOIN\DIM PRODUCTO ORDENADO.Outputs[Salida de ordenación].Columns[ProductKey]"
+                      name="ProductKey">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de origen de OLE DB].Columns[ProductKey]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\DIM PRODUCTO ORDENADO.Outputs[Salida de ordenación].Columns[ProductSubcategoryKey]"
+                      dataType="i4"
+                      lineageId="Package\MERGE JOIN\DIM PRODUCTO ORDENADO.Outputs[Salida de ordenación].Columns[ProductSubcategoryKey]"
+                      name="ProductSubcategoryKey"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de origen de OLE DB].Columns[ProductSubcategoryKey]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\DIM PRODUCTO ORDENADO.Outputs[Salida de ordenación].Columns[EnglishProductName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\MERGE JOIN\DIM PRODUCTO ORDENADO.Outputs[Salida de ordenación].Columns[EnglishProductName]"
+                      name="EnglishProductName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de origen de OLE DB].Columns[EnglishProductName]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\MERGE JOIN\DimProductCategory"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="DimProductCategory"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT ProductCategoryKey, EnglishProductCategoryName
+FROM DimProductCategory
+ORDER BY ProductCategoryKey</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\MERGE JOIN\DimProductCategory.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Gallardomsi.AdventureWorksDW2016]"
+                  connectionManagerRefId="Package.ConnectionManagers[Gallardomsi.AdventureWorksDW2016]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\MERGE JOIN\DimProductCategory.Outputs[Salida de origen de OLE DB]"
+                  isSorted="true"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\DimProductCategory.Outputs[Salida de origen de OLE DB].Columns[ProductCategoryKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MERGE JOIN\DimProductCategory.Outputs[Salida de origen de OLE DB].ExternalColumns[ProductCategoryKey]"
+                      lineageId="Package\MERGE JOIN\DimProductCategory.Outputs[Salida de origen de OLE DB].Columns[ProductCategoryKey]"
+                      name="ProductCategoryKey"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\MERGE JOIN\DimProductCategory.Outputs[Salida de origen de OLE DB].Columns[EnglishProductCategoryName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MERGE JOIN\DimProductCategory.Outputs[Salida de origen de OLE DB].ExternalColumns[EnglishProductCategoryName]"
+                      length="50"
+                      lineageId="Package\MERGE JOIN\DimProductCategory.Outputs[Salida de origen de OLE DB].Columns[EnglishProductCategoryName]"
+                      name="EnglishProductCategoryName"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\MERGE JOIN\DimProductCategory.Outputs[Salida de origen de OLE DB].ExternalColumns[ProductCategoryKey]"
+                      dataType="i4"
+                      name="ProductCategoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\MERGE JOIN\DimProductCategory.Outputs[Salida de origen de OLE DB].ExternalColumns[EnglishProductCategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      name="EnglishProductCategoryName" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\MERGE JOIN\DimProductCategory.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\DimProductCategory.Outputs[Salida de error de origen de OLE DB].Columns[ProductCategoryKey]"
+                      dataType="i4"
+                      lineageId="Package\MERGE JOIN\DimProductCategory.Outputs[Salida de error de origen de OLE DB].Columns[ProductCategoryKey]"
+                      name="ProductCategoryKey" />
+                    <outputColumn
+                      refId="Package\MERGE JOIN\DimProductCategory.Outputs[Salida de error de origen de OLE DB].Columns[EnglishProductCategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\MERGE JOIN\DimProductCategory.Outputs[Salida de error de origen de OLE DB].Columns[EnglishProductCategoryName]"
+                      name="EnglishProductCategoryName" />
+                    <outputColumn
+                      refId="Package\MERGE JOIN\DimProductCategory.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\MERGE JOIN\DimProductCategory.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\MERGE JOIN\DimProductCategory.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\MERGE JOIN\DimProductCategory.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\MERGE JOIN\DIMPRODUCTO"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="DIMPRODUCTO"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT ProductKey, ProductSubcategoryKey, EnglishProductName
+FROM DimProduct
+ORDER BY ProductSubcategoryKey</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\MERGE JOIN\DIMPRODUCTO.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Gallardomsi.AdventureWorksDW2016]"
+                  connectionManagerRefId="Package.ConnectionManagers[Gallardomsi.AdventureWorksDW2016]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de origen de OLE DB].Columns[ProductKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de origen de OLE DB].ExternalColumns[ProductKey]"
+                      lineageId="Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de origen de OLE DB].Columns[ProductKey]"
+                      name="ProductKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de origen de OLE DB].Columns[ProductSubcategoryKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de origen de OLE DB].ExternalColumns[ProductSubcategoryKey]"
+                      lineageId="Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de origen de OLE DB].Columns[ProductSubcategoryKey]"
+                      name="ProductSubcategoryKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de origen de OLE DB].Columns[EnglishProductName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de origen de OLE DB].ExternalColumns[EnglishProductName]"
+                      length="50"
+                      lineageId="Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de origen de OLE DB].Columns[EnglishProductName]"
+                      name="EnglishProductName"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de origen de OLE DB].ExternalColumns[ProductKey]"
+                      dataType="i4"
+                      name="ProductKey" />
+                    <externalMetadataColumn
+                      refId="Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de origen de OLE DB].ExternalColumns[ProductSubcategoryKey]"
+                      dataType="i4"
+                      name="ProductSubcategoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de origen de OLE DB].ExternalColumns[EnglishProductName]"
+                      dataType="wstr"
+                      length="50"
+                      name="EnglishProductName" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de error de origen de OLE DB].Columns[ProductKey]"
+                      dataType="i4"
+                      lineageId="Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de error de origen de OLE DB].Columns[ProductKey]"
+                      name="ProductKey" />
+                    <outputColumn
+                      refId="Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de error de origen de OLE DB].Columns[ProductSubcategoryKey]"
+                      dataType="i4"
+                      lineageId="Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de error de origen de OLE DB].Columns[ProductSubcategoryKey]"
+                      name="ProductSubcategoryKey" />
+                    <outputColumn
+                      refId="Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de error de origen de OLE DB].Columns[EnglishProductName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de error de origen de OLE DB].Columns[EnglishProductName]"
+                      name="EnglishProductName" />
+                    <outputColumn
+                      refId="Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\MERGE JOIN\DimProductSubcategory"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="DimProductSubcategory"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT ProductSubcategoryKey, ProductCategoryKey, EnglishProductSubcategoryName
+FROM DimProductSubcategory
+ORDER BY ProductSubcategoryKey</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\MERGE JOIN\DimProductSubcategory.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Gallardomsi.AdventureWorksDW2016]"
+                  connectionManagerRefId="Package.ConnectionManagers[Gallardomsi.AdventureWorksDW2016]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\MERGE JOIN\DimProductSubcategory.Outputs[Salida de origen de OLE DB]"
+                  isSorted="true"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\DimProductSubcategory.Outputs[Salida de origen de OLE DB].Columns[ProductSubcategoryKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MERGE JOIN\DimProductSubcategory.Outputs[Salida de origen de OLE DB].ExternalColumns[ProductSubcategoryKey]"
+                      lineageId="Package\MERGE JOIN\DimProductSubcategory.Outputs[Salida de origen de OLE DB].Columns[ProductSubcategoryKey]"
+                      name="ProductSubcategoryKey"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\MERGE JOIN\DimProductSubcategory.Outputs[Salida de origen de OLE DB].Columns[ProductCategoryKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MERGE JOIN\DimProductSubcategory.Outputs[Salida de origen de OLE DB].ExternalColumns[ProductCategoryKey]"
+                      lineageId="Package\MERGE JOIN\DimProductSubcategory.Outputs[Salida de origen de OLE DB].Columns[ProductCategoryKey]"
+                      name="ProductCategoryKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\MERGE JOIN\DimProductSubcategory.Outputs[Salida de origen de OLE DB].Columns[EnglishProductSubcategoryName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MERGE JOIN\DimProductSubcategory.Outputs[Salida de origen de OLE DB].ExternalColumns[EnglishProductSubcategoryName]"
+                      length="50"
+                      lineageId="Package\MERGE JOIN\DimProductSubcategory.Outputs[Salida de origen de OLE DB].Columns[EnglishProductSubcategoryName]"
+                      name="EnglishProductSubcategoryName"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\MERGE JOIN\DimProductSubcategory.Outputs[Salida de origen de OLE DB].ExternalColumns[ProductSubcategoryKey]"
+                      dataType="i4"
+                      name="ProductSubcategoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\MERGE JOIN\DimProductSubcategory.Outputs[Salida de origen de OLE DB].ExternalColumns[ProductCategoryKey]"
+                      dataType="i4"
+                      name="ProductCategoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\MERGE JOIN\DimProductSubcategory.Outputs[Salida de origen de OLE DB].ExternalColumns[EnglishProductSubcategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      name="EnglishProductSubcategoryName" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\MERGE JOIN\DimProductSubcategory.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\DimProductSubcategory.Outputs[Salida de error de origen de OLE DB].Columns[ProductSubcategoryKey]"
+                      dataType="i4"
+                      lineageId="Package\MERGE JOIN\DimProductSubcategory.Outputs[Salida de error de origen de OLE DB].Columns[ProductSubcategoryKey]"
+                      name="ProductSubcategoryKey" />
+                    <outputColumn
+                      refId="Package\MERGE JOIN\DimProductSubcategory.Outputs[Salida de error de origen de OLE DB].Columns[ProductCategoryKey]"
+                      dataType="i4"
+                      lineageId="Package\MERGE JOIN\DimProductSubcategory.Outputs[Salida de error de origen de OLE DB].Columns[ProductCategoryKey]"
+                      name="ProductCategoryKey" />
+                    <outputColumn
+                      refId="Package\MERGE JOIN\DimProductSubcategory.Outputs[Salida de error de origen de OLE DB].Columns[EnglishProductSubcategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\MERGE JOIN\DimProductSubcategory.Outputs[Salida de error de origen de OLE DB].Columns[EnglishProductSubcategoryName]"
+                      name="EnglishProductSubcategoryName" />
+                    <outputColumn
+                      refId="Package\MERGE JOIN\DimProductSubcategory.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\MERGE JOIN\DimProductSubcategory.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\MERGE JOIN\DimProductSubcategory.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\MERGE JOIN\DimProductSubcategory.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\MERGE JOIN\FactResellerSales"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="FactResellerSales"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT ProductKey, UnitPrice, SalesAmount
+FROM FactResellerSales
+ORDER BY ProductKey</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\MERGE JOIN\FactResellerSales.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Gallardomsi.AdventureWorksDW2016]"
+                  connectionManagerRefId="Package.ConnectionManagers[Gallardomsi.AdventureWorksDW2016]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\MERGE JOIN\FactResellerSales.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\FactResellerSales.Outputs[Salida de origen de OLE DB].Columns[ProductKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MERGE JOIN\FactResellerSales.Outputs[Salida de origen de OLE DB].ExternalColumns[ProductKey]"
+                      lineageId="Package\MERGE JOIN\FactResellerSales.Outputs[Salida de origen de OLE DB].Columns[ProductKey]"
+                      name="ProductKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\MERGE JOIN\FactResellerSales.Outputs[Salida de origen de OLE DB].Columns[UnitPrice]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MERGE JOIN\FactResellerSales.Outputs[Salida de origen de OLE DB].ExternalColumns[UnitPrice]"
+                      lineageId="Package\MERGE JOIN\FactResellerSales.Outputs[Salida de origen de OLE DB].Columns[UnitPrice]"
+                      name="UnitPrice"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\MERGE JOIN\FactResellerSales.Outputs[Salida de origen de OLE DB].Columns[SalesAmount]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MERGE JOIN\FactResellerSales.Outputs[Salida de origen de OLE DB].ExternalColumns[SalesAmount]"
+                      lineageId="Package\MERGE JOIN\FactResellerSales.Outputs[Salida de origen de OLE DB].Columns[SalesAmount]"
+                      name="SalesAmount"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\MERGE JOIN\FactResellerSales.Outputs[Salida de origen de OLE DB].ExternalColumns[ProductKey]"
+                      dataType="i4"
+                      name="ProductKey" />
+                    <externalMetadataColumn
+                      refId="Package\MERGE JOIN\FactResellerSales.Outputs[Salida de origen de OLE DB].ExternalColumns[UnitPrice]"
+                      dataType="cy"
+                      name="UnitPrice" />
+                    <externalMetadataColumn
+                      refId="Package\MERGE JOIN\FactResellerSales.Outputs[Salida de origen de OLE DB].ExternalColumns[SalesAmount]"
+                      dataType="cy"
+                      name="SalesAmount" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\MERGE JOIN\FactResellerSales.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\FactResellerSales.Outputs[Salida de error de origen de OLE DB].Columns[ProductKey]"
+                      dataType="i4"
+                      lineageId="Package\MERGE JOIN\FactResellerSales.Outputs[Salida de error de origen de OLE DB].Columns[ProductKey]"
+                      name="ProductKey" />
+                    <outputColumn
+                      refId="Package\MERGE JOIN\FactResellerSales.Outputs[Salida de error de origen de OLE DB].Columns[UnitPrice]"
+                      dataType="cy"
+                      lineageId="Package\MERGE JOIN\FactResellerSales.Outputs[Salida de error de origen de OLE DB].Columns[UnitPrice]"
+                      name="UnitPrice" />
+                    <outputColumn
+                      refId="Package\MERGE JOIN\FactResellerSales.Outputs[Salida de error de origen de OLE DB].Columns[SalesAmount]"
+                      dataType="cy"
+                      lineageId="Package\MERGE JOIN\FactResellerSales.Outputs[Salida de error de origen de OLE DB].Columns[SalesAmount]"
+                      name="SalesAmount" />
+                    <outputColumn
+                      refId="Package\MERGE JOIN\FactResellerSales.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\MERGE JOIN\FactResellerSales.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\MERGE JOIN\FactResellerSales.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\MERGE JOIN\FactResellerSales.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\MERGE JOIN\FactResellerSales ORDENADOS"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="FactResellerSales ORDENADOS"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\MERGE JOIN\FactResellerSales ORDENADOS.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\MERGE JOIN\FactResellerSales ORDENADOS.Inputs[Entrada de ordenación].Columns[ProductKey]"
+                      cachedDataType="i4"
+                      cachedName="ProductKey"
+                      lineageId="Package\MERGE JOIN\FactResellerSales.Outputs[Salida de origen de OLE DB].Columns[ProductKey]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\MERGE JOIN\FactResellerSales ORDENADOS.Inputs[Entrada de ordenación].Columns[UnitPrice]"
+                      cachedDataType="cy"
+                      cachedName="UnitPrice"
+                      lineageId="Package\MERGE JOIN\FactResellerSales.Outputs[Salida de origen de OLE DB].Columns[UnitPrice]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\MERGE JOIN\FactResellerSales ORDENADOS.Inputs[Entrada de ordenación].Columns[SalesAmount]"
+                      cachedDataType="cy"
+                      cachedName="SalesAmount"
+                      lineageId="Package\MERGE JOIN\FactResellerSales.Outputs[Salida de origen de OLE DB].Columns[SalesAmount]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\MERGE JOIN\FactResellerSales ORDENADOS.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\FactResellerSales ORDENADOS.Outputs[Salida de ordenación].Columns[ProductKey]"
+                      dataType="i4"
+                      lineageId="Package\MERGE JOIN\FactResellerSales ORDENADOS.Outputs[Salida de ordenación].Columns[ProductKey]"
+                      name="ProductKey"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\MERGE JOIN\FactResellerSales.Outputs[Salida de origen de OLE DB].Columns[ProductKey]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\FactResellerSales ORDENADOS.Outputs[Salida de ordenación].Columns[UnitPrice]"
+                      dataType="cy"
+                      lineageId="Package\MERGE JOIN\FactResellerSales ORDENADOS.Outputs[Salida de ordenación].Columns[UnitPrice]"
+                      name="UnitPrice">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\MERGE JOIN\FactResellerSales.Outputs[Salida de origen de OLE DB].Columns[UnitPrice]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\FactResellerSales ORDENADOS.Outputs[Salida de ordenación].Columns[SalesAmount]"
+                      dataType="cy"
+                      lineageId="Package\MERGE JOIN\FactResellerSales ORDENADOS.Outputs[Salida de ordenación].Columns[SalesAmount]"
+                      name="SalesAmount">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\MERGE JOIN\FactResellerSales.Outputs[Salida de origen de OLE DB].Columns[SalesAmount]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\MERGE JOIN\REPORTE DE VENTAS"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Destino de archivo plano;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Destino de archivo plano"
+              localeId="3082"
+              name="REPORTE DE VENTAS"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si los datos sobrescriben el archivo de destino o se anexan al mismo."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Especifica el texto para escribir en el archivo de destino antes de escribir ningún dato."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="Cuando el calificador de texto está habilitado, especifica si este contendrá secuencias de escape o no en los datos escritos en el archivo de destino."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\MERGE JOIN\REPORTE DE VENTAS.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[REPORTE VENTAS]"
+                  connectionManagerRefId="Package.ConnectionManagers[REPORTE VENTAS]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\MERGE JOIN\REPORTE DE VENTAS.Inputs[Entrada de destino de archivo plano]"
+                  hasSideEffects="true"
+                  name="Entrada de destino de archivo plano">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\MERGE JOIN\REPORTE DE VENTAS.Inputs[Entrada de destino de archivo plano].Columns[Nombre Producto Ingles]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Nombre Producto Ingles"
+                      externalMetadataColumnId="Package\MERGE JOIN\REPORTE DE VENTAS.Inputs[Entrada de destino de archivo plano].ExternalColumns[Nombre Producto Ingles]"
+                      lineageId="Package\MERGE JOIN\SALIDA 3.Outputs[Salida de combinación de mezcla].Columns[Nombre Producto Ingles]" />
+                    <inputColumn
+                      refId="Package\MERGE JOIN\REPORTE DE VENTAS.Inputs[Entrada de destino de archivo plano].Columns[EnglishProductSubcategoryName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EnglishProductSubcategoryName"
+                      externalMetadataColumnId="Package\MERGE JOIN\REPORTE DE VENTAS.Inputs[Entrada de destino de archivo plano].ExternalColumns[EnglishProductSubcategoryName]"
+                      lineageId="Package\MERGE JOIN\SALIDA 3.Outputs[Salida de combinación de mezcla].Columns[EnglishProductSubcategoryName]" />
+                    <inputColumn
+                      refId="Package\MERGE JOIN\REPORTE DE VENTAS.Inputs[Entrada de destino de archivo plano].Columns[EnglishProductCategoryName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EnglishProductCategoryName"
+                      externalMetadataColumnId="Package\MERGE JOIN\REPORTE DE VENTAS.Inputs[Entrada de destino de archivo plano].ExternalColumns[EnglishProductCategoryName]"
+                      lineageId="Package\MERGE JOIN\SALIDA 3.Outputs[Salida de combinación de mezcla].Columns[EnglishProductCategoryName]" />
+                    <inputColumn
+                      refId="Package\MERGE JOIN\REPORTE DE VENTAS.Inputs[Entrada de destino de archivo plano].Columns[Precio Unitario]"
+                      cachedDataType="cy"
+                      cachedName="Precio Unitario"
+                      externalMetadataColumnId="Package\MERGE JOIN\REPORTE DE VENTAS.Inputs[Entrada de destino de archivo plano].ExternalColumns[Precio Unitario]"
+                      lineageId="Package\MERGE JOIN\SALIDA 3.Outputs[Salida de combinación de mezcla].Columns[Precio Unitario]" />
+                    <inputColumn
+                      refId="Package\MERGE JOIN\REPORTE DE VENTAS.Inputs[Entrada de destino de archivo plano].Columns[Monto de la Venta]"
+                      cachedDataType="cy"
+                      cachedName="Monto de la Venta"
+                      externalMetadataColumnId="Package\MERGE JOIN\REPORTE DE VENTAS.Inputs[Entrada de destino de archivo plano].ExternalColumns[Monto de la Venta]"
+                      lineageId="Package\MERGE JOIN\SALIDA 3.Outputs[Salida de combinación de mezcla].Columns[Monto de la Venta]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\MERGE JOIN\REPORTE DE VENTAS.Inputs[Entrada de destino de archivo plano].ExternalColumns[Nombre Producto Ingles]"
+                      dataType="wstr"
+                      length="50"
+                      name="Nombre Producto Ingles" />
+                    <externalMetadataColumn
+                      refId="Package\MERGE JOIN\REPORTE DE VENTAS.Inputs[Entrada de destino de archivo plano].ExternalColumns[EnglishProductSubcategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      name="EnglishProductSubcategoryName" />
+                    <externalMetadataColumn
+                      refId="Package\MERGE JOIN\REPORTE DE VENTAS.Inputs[Entrada de destino de archivo plano].ExternalColumns[EnglishProductCategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      name="EnglishProductCategoryName" />
+                    <externalMetadataColumn
+                      refId="Package\MERGE JOIN\REPORTE DE VENTAS.Inputs[Entrada de destino de archivo plano].ExternalColumns[Precio Unitario]"
+                      dataType="cy"
+                      name="Precio Unitario" />
+                    <externalMetadataColumn
+                      refId="Package\MERGE JOIN\REPORTE DE VENTAS.Inputs[Entrada de destino de archivo plano].ExternalColumns[Monto de la Venta]"
+                      dataType="cy"
+                      name="Monto de la Venta" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\MERGE JOIN\SALIDA 2"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Combinación de mezcla;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Combina dos flujos de datos ordenados en uno solo mediante la combinación FULL, LEFT o INNER. Se recomienda esta transformación cuando se pueden ordenar los flujos de datos en sus orígenes."
+              name="SALIDA 2"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de combinación que se debe realizar."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número de columnas de la clave de ordenación."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores NULL se tratan como valores iguales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indica la cantidad máxima solicitada de búferes por entrada antes del bloqueo."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\MERGE JOIN\SALIDA 2.Inputs[Entrada izquierda de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada izquierda de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\MERGE JOIN\SALIDA 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[ProductCategoryKey]"
+                      cachedDataType="i4"
+                      cachedName="ProductCategoryKey"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\MERGE JOIN\SALIDA1.Outputs[Salida de ordenación].Columns[ProductCategoryKey]" />
+                    <inputColumn
+                      refId="Package\MERGE JOIN\SALIDA 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[ProductKey]"
+                      cachedDataType="i4"
+                      cachedName="ProductKey"
+                      lineageId="Package\MERGE JOIN\SALIDA1.Outputs[Salida de ordenación].Columns[ProductKey]" />
+                    <inputColumn
+                      refId="Package\MERGE JOIN\SALIDA 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[EnglishProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EnglishProductName"
+                      lineageId="Package\MERGE JOIN\SALIDA1.Outputs[Salida de ordenación].Columns[EnglishProductName]" />
+                    <inputColumn
+                      refId="Package\MERGE JOIN\SALIDA 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[EnglishProductSubcategoryName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EnglishProductSubcategoryName"
+                      lineageId="Package\MERGE JOIN\SALIDA1.Outputs[Salida de ordenación].Columns[EnglishProductSubcategoryName]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\MERGE JOIN\SALIDA 2.Inputs[Entrada derecha de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada derecha de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\MERGE JOIN\SALIDA 2.Inputs[Entrada derecha de combinación de mezcla].Columns[ProductCategoryKey]"
+                      cachedDataType="i4"
+                      cachedName="ProductCategoryKey"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\MERGE JOIN\DimProductCategory.Outputs[Salida de origen de OLE DB].Columns[ProductCategoryKey]" />
+                    <inputColumn
+                      refId="Package\MERGE JOIN\SALIDA 2.Inputs[Entrada derecha de combinación de mezcla].Columns[EnglishProductCategoryName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EnglishProductCategoryName"
+                      lineageId="Package\MERGE JOIN\DimProductCategory.Outputs[Salida de origen de OLE DB].Columns[EnglishProductCategoryName]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\MERGE JOIN\SALIDA 2.Outputs[Salida de combinación de mezcla]"
+                  name="Salida de combinación de mezcla">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\SALIDA 2.Outputs[Salida de combinación de mezcla].Columns[ProductKey]"
+                      dataType="i4"
+                      lineageId="Package\MERGE JOIN\SALIDA 2.Outputs[Salida de combinación de mezcla].Columns[ProductKey]"
+                      name="ProductKey">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\MERGE JOIN\SALIDA 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[ProductKey]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\SALIDA 2.Outputs[Salida de combinación de mezcla].Columns[EnglishProductName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\MERGE JOIN\SALIDA 2.Outputs[Salida de combinación de mezcla].Columns[EnglishProductName]"
+                      name="EnglishProductName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\MERGE JOIN\SALIDA 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[EnglishProductName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\SALIDA 2.Outputs[Salida de combinación de mezcla].Columns[EnglishProductSubcategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\MERGE JOIN\SALIDA 2.Outputs[Salida de combinación de mezcla].Columns[EnglishProductSubcategoryName]"
+                      name="EnglishProductSubcategoryName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\MERGE JOIN\SALIDA 2.Inputs[Entrada izquierda de combinación de mezcla].Columns[EnglishProductSubcategoryName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\SALIDA 2.Outputs[Salida de combinación de mezcla].Columns[EnglishProductCategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\MERGE JOIN\SALIDA 2.Outputs[Salida de combinación de mezcla].Columns[EnglishProductCategoryName]"
+                      name="EnglishProductCategoryName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\MERGE JOIN\SALIDA 2.Inputs[Entrada derecha de combinación de mezcla].Columns[EnglishProductCategoryName]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\MERGE JOIN\SALIDA 2 ORDENADA"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="SALIDA 2 ORDENADA"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\MERGE JOIN\SALIDA 2 ORDENADA.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\MERGE JOIN\SALIDA 2 ORDENADA.Inputs[Entrada de ordenación].Columns[ProductKey]"
+                      cachedDataType="i4"
+                      cachedName="ProductKey"
+                      lineageId="Package\MERGE JOIN\SALIDA 2.Outputs[Salida de combinación de mezcla].Columns[ProductKey]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\MERGE JOIN\SALIDA 2 ORDENADA.Inputs[Entrada de ordenación].Columns[EnglishProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EnglishProductName"
+                      lineageId="Package\MERGE JOIN\SALIDA 2.Outputs[Salida de combinación de mezcla].Columns[EnglishProductName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\MERGE JOIN\SALIDA 2 ORDENADA.Inputs[Entrada de ordenación].Columns[EnglishProductSubcategoryName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EnglishProductSubcategoryName"
+                      lineageId="Package\MERGE JOIN\SALIDA 2.Outputs[Salida de combinación de mezcla].Columns[EnglishProductSubcategoryName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\MERGE JOIN\SALIDA 2 ORDENADA.Inputs[Entrada de ordenación].Columns[EnglishProductCategoryName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EnglishProductCategoryName"
+                      lineageId="Package\MERGE JOIN\SALIDA 2.Outputs[Salida de combinación de mezcla].Columns[EnglishProductCategoryName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\MERGE JOIN\SALIDA 2 ORDENADA.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\SALIDA 2 ORDENADA.Outputs[Salida de ordenación].Columns[ProductKey]"
+                      dataType="i4"
+                      lineageId="Package\MERGE JOIN\SALIDA 2 ORDENADA.Outputs[Salida de ordenación].Columns[ProductKey]"
+                      name="ProductKey"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\MERGE JOIN\SALIDA 2.Outputs[Salida de combinación de mezcla].Columns[ProductKey]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\SALIDA 2 ORDENADA.Outputs[Salida de ordenación].Columns[EnglishProductName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\MERGE JOIN\SALIDA 2 ORDENADA.Outputs[Salida de ordenación].Columns[EnglishProductName]"
+                      name="EnglishProductName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\MERGE JOIN\SALIDA 2.Outputs[Salida de combinación de mezcla].Columns[EnglishProductName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\SALIDA 2 ORDENADA.Outputs[Salida de ordenación].Columns[EnglishProductSubcategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\MERGE JOIN\SALIDA 2 ORDENADA.Outputs[Salida de ordenación].Columns[EnglishProductSubcategoryName]"
+                      name="EnglishProductSubcategoryName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\MERGE JOIN\SALIDA 2.Outputs[Salida de combinación de mezcla].Columns[EnglishProductSubcategoryName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\SALIDA 2 ORDENADA.Outputs[Salida de ordenación].Columns[EnglishProductCategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\MERGE JOIN\SALIDA 2 ORDENADA.Outputs[Salida de ordenación].Columns[EnglishProductCategoryName]"
+                      name="EnglishProductCategoryName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\MERGE JOIN\SALIDA 2.Outputs[Salida de combinación de mezcla].Columns[EnglishProductCategoryName]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\MERGE JOIN\SALIDA 3"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Combinación de mezcla;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Combina dos flujos de datos ordenados en uno solo mediante la combinación FULL, LEFT o INNER. Se recomienda esta transformación cuando se pueden ordenar los flujos de datos en sus orígenes."
+              name="SALIDA 3"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de combinación que se debe realizar."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número de columnas de la clave de ordenación."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores NULL se tratan como valores iguales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indica la cantidad máxima solicitada de búferes por entrada antes del bloqueo."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\MERGE JOIN\SALIDA 3.Inputs[Entrada izquierda de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada izquierda de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\MERGE JOIN\SALIDA 3.Inputs[Entrada izquierda de combinación de mezcla].Columns[ProductKey]"
+                      cachedDataType="i4"
+                      cachedName="ProductKey"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\MERGE JOIN\SALIDA 2 ORDENADA.Outputs[Salida de ordenación].Columns[ProductKey]" />
+                    <inputColumn
+                      refId="Package\MERGE JOIN\SALIDA 3.Inputs[Entrada izquierda de combinación de mezcla].Columns[EnglishProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EnglishProductName"
+                      lineageId="Package\MERGE JOIN\SALIDA 2 ORDENADA.Outputs[Salida de ordenación].Columns[EnglishProductName]" />
+                    <inputColumn
+                      refId="Package\MERGE JOIN\SALIDA 3.Inputs[Entrada izquierda de combinación de mezcla].Columns[EnglishProductSubcategoryName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EnglishProductSubcategoryName"
+                      lineageId="Package\MERGE JOIN\SALIDA 2 ORDENADA.Outputs[Salida de ordenación].Columns[EnglishProductSubcategoryName]" />
+                    <inputColumn
+                      refId="Package\MERGE JOIN\SALIDA 3.Inputs[Entrada izquierda de combinación de mezcla].Columns[EnglishProductCategoryName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EnglishProductCategoryName"
+                      lineageId="Package\MERGE JOIN\SALIDA 2 ORDENADA.Outputs[Salida de ordenación].Columns[EnglishProductCategoryName]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\MERGE JOIN\SALIDA 3.Inputs[Entrada derecha de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada derecha de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\MERGE JOIN\SALIDA 3.Inputs[Entrada derecha de combinación de mezcla].Columns[ProductKey]"
+                      cachedDataType="i4"
+                      cachedName="ProductKey"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\MERGE JOIN\FactResellerSales ORDENADOS.Outputs[Salida de ordenación].Columns[ProductKey]" />
+                    <inputColumn
+                      refId="Package\MERGE JOIN\SALIDA 3.Inputs[Entrada derecha de combinación de mezcla].Columns[UnitPrice]"
+                      cachedDataType="cy"
+                      cachedName="UnitPrice"
+                      lineageId="Package\MERGE JOIN\FactResellerSales ORDENADOS.Outputs[Salida de ordenación].Columns[UnitPrice]" />
+                    <inputColumn
+                      refId="Package\MERGE JOIN\SALIDA 3.Inputs[Entrada derecha de combinación de mezcla].Columns[SalesAmount]"
+                      cachedDataType="cy"
+                      cachedName="SalesAmount"
+                      lineageId="Package\MERGE JOIN\FactResellerSales ORDENADOS.Outputs[Salida de ordenación].Columns[SalesAmount]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\MERGE JOIN\SALIDA 3.Outputs[Salida de combinación de mezcla]"
+                  name="Salida de combinación de mezcla">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\SALIDA 3.Outputs[Salida de combinación de mezcla].Columns[Nombre Producto Ingles]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\MERGE JOIN\SALIDA 3.Outputs[Salida de combinación de mezcla].Columns[Nombre Producto Ingles]"
+                      name="Nombre Producto Ingles">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\MERGE JOIN\SALIDA 3.Inputs[Entrada izquierda de combinación de mezcla].Columns[EnglishProductName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\SALIDA 3.Outputs[Salida de combinación de mezcla].Columns[EnglishProductSubcategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\MERGE JOIN\SALIDA 3.Outputs[Salida de combinación de mezcla].Columns[EnglishProductSubcategoryName]"
+                      name="EnglishProductSubcategoryName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\MERGE JOIN\SALIDA 3.Inputs[Entrada izquierda de combinación de mezcla].Columns[EnglishProductSubcategoryName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\SALIDA 3.Outputs[Salida de combinación de mezcla].Columns[EnglishProductCategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\MERGE JOIN\SALIDA 3.Outputs[Salida de combinación de mezcla].Columns[EnglishProductCategoryName]"
+                      name="EnglishProductCategoryName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\MERGE JOIN\SALIDA 3.Inputs[Entrada izquierda de combinación de mezcla].Columns[EnglishProductCategoryName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\SALIDA 3.Outputs[Salida de combinación de mezcla].Columns[Precio Unitario]"
+                      dataType="cy"
+                      lineageId="Package\MERGE JOIN\SALIDA 3.Outputs[Salida de combinación de mezcla].Columns[Precio Unitario]"
+                      name="Precio Unitario">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\MERGE JOIN\SALIDA 3.Inputs[Entrada derecha de combinación de mezcla].Columns[UnitPrice]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\SALIDA 3.Outputs[Salida de combinación de mezcla].Columns[Monto de la Venta]"
+                      dataType="cy"
+                      lineageId="Package\MERGE JOIN\SALIDA 3.Outputs[Salida de combinación de mezcla].Columns[Monto de la Venta]"
+                      name="Monto de la Venta">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\MERGE JOIN\SALIDA 3.Inputs[Entrada derecha de combinación de mezcla].Columns[SalesAmount]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\MERGE JOIN\SALIDA1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="SALIDA1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\MERGE JOIN\SALIDA1.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\MERGE JOIN\SALIDA1.Inputs[Entrada de ordenación].Columns[ProductKey]"
+                      cachedDataType="i4"
+                      cachedName="ProductKey"
+                      lineageId="Package\MERGE JOIN\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ProductKey]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\MERGE JOIN\SALIDA1.Inputs[Entrada de ordenación].Columns[EnglishProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EnglishProductName"
+                      lineageId="Package\MERGE JOIN\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[EnglishProductName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\MERGE JOIN\SALIDA1.Inputs[Entrada de ordenación].Columns[ProductCategoryKey]"
+                      cachedDataType="i4"
+                      cachedName="ProductCategoryKey"
+                      lineageId="Package\MERGE JOIN\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ProductCategoryKey]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\MERGE JOIN\SALIDA1.Inputs[Entrada de ordenación].Columns[EnglishProductSubcategoryName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EnglishProductSubcategoryName"
+                      lineageId="Package\MERGE JOIN\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[EnglishProductSubcategoryName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\MERGE JOIN\SALIDA1.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\SALIDA1.Outputs[Salida de ordenación].Columns[ProductKey]"
+                      dataType="i4"
+                      lineageId="Package\MERGE JOIN\SALIDA1.Outputs[Salida de ordenación].Columns[ProductKey]"
+                      name="ProductKey">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\MERGE JOIN\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ProductKey]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\SALIDA1.Outputs[Salida de ordenación].Columns[EnglishProductName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\MERGE JOIN\SALIDA1.Outputs[Salida de ordenación].Columns[EnglishProductName]"
+                      name="EnglishProductName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\MERGE JOIN\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[EnglishProductName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\SALIDA1.Outputs[Salida de ordenación].Columns[ProductCategoryKey]"
+                      dataType="i4"
+                      lineageId="Package\MERGE JOIN\SALIDA1.Outputs[Salida de ordenación].Columns[ProductCategoryKey]"
+                      name="ProductCategoryKey"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\MERGE JOIN\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ProductCategoryKey]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MERGE JOIN\SALIDA1.Outputs[Salida de ordenación].Columns[EnglishProductSubcategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\MERGE JOIN\SALIDA1.Outputs[Salida de ordenación].Columns[EnglishProductSubcategoryName]"
+                      name="EnglishProductSubcategoryName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\MERGE JOIN\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[EnglishProductSubcategoryName]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\MERGE JOIN.Paths[Salida de combinación de mezcla]"
+              endId="Package\MERGE JOIN\SALIDA1.Inputs[Entrada de ordenación]"
+              name="Salida de combinación de mezcla"
+              startId="Package\MERGE JOIN\Combinación de mezcla.Outputs[Salida de combinación de mezcla]" />
+            <path
+              refId="Package\MERGE JOIN.Paths[Salida de combinación de mezcla1]"
+              endId="Package\MERGE JOIN\SALIDA 2 ORDENADA.Inputs[Entrada de ordenación]"
+              name="Salida de combinación de mezcla"
+              startId="Package\MERGE JOIN\SALIDA 2.Outputs[Salida de combinación de mezcla]" />
+            <path
+              refId="Package\MERGE JOIN.Paths[Salida de combinación de mezcla2]"
+              endId="Package\MERGE JOIN\REPORTE DE VENTAS.Inputs[Entrada de destino de archivo plano]"
+              name="Salida de combinación de mezcla"
+              startId="Package\MERGE JOIN\SALIDA 3.Outputs[Salida de combinación de mezcla]" />
+            <path
+              refId="Package\MERGE JOIN.Paths[Salida de ordenación]"
+              endId="Package\MERGE JOIN\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\MERGE JOIN\DIM PRODUCTO ORDENADO.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\MERGE JOIN.Paths[Salida de ordenación1]"
+              endId="Package\MERGE JOIN\SALIDA 2.Inputs[Entrada izquierda de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\MERGE JOIN\SALIDA1.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\MERGE JOIN.Paths[Salida de ordenación2]"
+              endId="Package\MERGE JOIN\SALIDA 3.Inputs[Entrada izquierda de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\MERGE JOIN\SALIDA 2 ORDENADA.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\MERGE JOIN.Paths[Salida de ordenación3]"
+              endId="Package\MERGE JOIN\SALIDA 3.Inputs[Entrada derecha de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\MERGE JOIN\FactResellerSales ORDENADOS.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\MERGE JOIN.Paths[Salida de origen de OLE DB]"
+              endId="Package\MERGE JOIN\DIM PRODUCTO ORDENADO.Inputs[Entrada de ordenación]"
+              name="Salida de origen de OLE DB"
+              startId="Package\MERGE JOIN\DIMPRODUCTO.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\MERGE JOIN.Paths[Salida de origen de OLE DB1]"
+              endId="Package\MERGE JOIN\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+              name="Salida de origen de OLE DB"
+              startId="Package\MERGE JOIN\DimProductSubcategory.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\MERGE JOIN.Paths[Salida de origen de OLE DB2]"
+              endId="Package\MERGE JOIN\SALIDA 2.Inputs[Entrada derecha de combinación de mezcla]"
+              name="Salida de origen de OLE DB"
+              startId="Package\MERGE JOIN\DimProductCategory.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\MERGE JOIN.Paths[Salida de origen de OLE DB3]"
+              endId="Package\MERGE JOIN\FactResellerSales ORDENADOS.Inputs[Entrada de ordenación]"
+              name="Salida de origen de OLE DB"
+              startId="Package\MERGE JOIN\FactResellerSales.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="145.333333333334,42.6666666666667"
+          Id="Package\MERGE JOIN"
+          TopLeft="306.249986309559,56.10526254187" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\MERGE JOIN">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="160,42.6666666666667"
+          Id="Package\MERGE JOIN\DIMPRODUCTO"
+          TopLeft="179.374991981313,28.7368417897383" />
+        <NodeLayout
+          Size="196,42.6666666666667"
+          Id="Package\MERGE JOIN\DimProductSubcategory"
+          TopLeft="481.874978458509,26.6842102333284" />
+        <NodeLayout
+          Size="193.333333333334,42.6666666666667"
+          Id="Package\MERGE JOIN\Combinación de mezcla"
+          TopLeft="292.499986924231,231.263155355513" />
+        <NodeLayout
+          Size="228,42.6666666666667"
+          Id="Package\MERGE JOIN\DIM PRODUCTO ORDENADO"
+          TopLeft="193.12499136664,121.912279597417" />
+        <EdgeLayout
+          Id="Package\MERGE JOIN.Paths[Salida de origen de OLE DB]"
+          TopLeft="259.374991981313,71.403508456405">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="47.7499993853271,50.5087711410125"
+              Start="0,0"
+              End="47.7499993853271,43.0087711410125">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.2543855705063" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.2543855705063"
+                    Point2="0,25.2543855705063"
+                    Point3="4,25.2543855705063" />
+                  <mssgle:LineSegment
+                    End="43.7499993853271,25.2543855705063" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43.7499993853271,25.2543855705063"
+                    Point2="47.7499993853271,25.2543855705063"
+                    Point3="47.7499993853271,29.2543855705063" />
+                  <mssgle:LineSegment
+                    End="47.7499993853271,43.0087711410125" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\MERGE JOIN.Paths[Salida de ordenación]"
+          TopLeft="307.12499136664,164.578946264084">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="51.1527733353692,66.6842090914289"
+              Start="0,0"
+              End="51.1527733353692,59.1842090914289">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.682121689154" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.682121689154"
+                    Point2="0,39.682121689154"
+                    Point3="4,39.682121689154" />
+                  <mssgle:LineSegment
+                    End="47.1527733353692,39.682121689154" />
+                  <mssgle:CubicBezierSegment
+                    Point1="47.1527733353692,39.682121689154"
+                    Point2="51.1527733353692,39.682121689154"
+                    Point3="51.1527733353692,43.682121689154" />
+                  <mssgle:LineSegment
+                    End="51.1527733353692,59.1842090914289" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\MERGE JOIN.Paths[Salida de origen de OLE DB1]"
+          TopLeft="579.874978458509,69.3508768999951">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-159.819435978722,161.912278455518"
+              Start="0,0"
+              End="-159.819435978722,154.412278455518">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,92.3499878634067" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,92.3499878634067"
+                    Point2="0,96.3499878634067"
+                    Point3="-4,96.3499878634067" />
+                  <mssgle:LineSegment
+                    End="-155.819435978722,96.3499878634067" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-155.819435978722,96.3499878634067"
+                    Point2="-159.819435978722,96.3499878634067"
+                    Point3="-159.819435978722,100.349987863407" />
+                  <mssgle:LineSegment
+                    End="-159.819435978722,154.412278455518" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="178.666666666667,42.6666666666667"
+          Id="Package\MERGE JOIN\DimProductCategory"
+          TopLeft="537.499975971878,225.228067936715" />
+        <NodeLayout
+          Size="126.666666666667,42.6666666666667"
+          Id="Package\MERGE JOIN\SALIDA 2"
+          TopLeft="296.249986756594,433.912276171719" />
+        <NodeLayout
+          Size="124,42.6666666666667"
+          Id="Package\MERGE JOIN\SALIDA1"
+          TopLeft="248.749988880009,330.877190893982" />
+        <EdgeLayout
+          Id="Package\MERGE JOIN.Paths[Salida de combinación de mezcla]"
+          TopLeft="389.166653590898,273.92982202218">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-78.4166647108893,56.9473688718024"
+              Start="0,0"
+              End="-78.4166647108893,49.4473688718024">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.4736844359012" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.4736844359012"
+                    Point2="0,28.4736844359012"
+                    Point3="-4,28.4736844359012" />
+                  <mssgle:LineSegment
+                    End="-74.4166647108893,28.4736844359012" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-74.4166647108893,28.4736844359012"
+                    Point2="-78.4166647108893,28.4736844359012"
+                    Point3="-78.4166647108893,32.4736844359012" />
+                  <mssgle:LineSegment
+                    End="-78.4166647108893,49.4473688718024" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\MERGE JOIN.Paths[Salida de ordenación1]"
+          TopLeft="310.749988880009,373.543857560649">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="29.0555534321402,60.3684186110702"
+              Start="0,0"
+              End="29.0555534321402,52.8684186110702">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.7692293225676" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.7692293225676"
+                    Point2="0,35.7692293225676"
+                    Point3="4,35.7692293225676" />
+                  <mssgle:LineSegment
+                    End="25.0555534321402,35.7692293225676" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.0555534321402,35.7692293225676"
+                    Point2="29.0555534321402,35.7692293225676"
+                    Point3="29.0555534321402,39.7692293225676" />
+                  <mssgle:LineSegment
+                    End="29.0555534321402,52.8684186110702" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\MERGE JOIN.Paths[Salida de origen de OLE DB2]"
+          TopLeft="626.833309305212,267.894734603381">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-247.472211437507,166.017541568338"
+              Start="0,0"
+              End="-247.472211437507,158.517541568338">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,94.3679820103456" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,94.3679820103456"
+                    Point2="0,98.3679820103456"
+                    Point3="-4,98.3679820103456" />
+                  <mssgle:LineSegment
+                    End="-243.472211437507,98.3679820103456" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-243.472211437507,98.3679820103456"
+                    Point2="-247.472211437507,98.3679820103456"
+                    Point3="-247.472211437507,102.367982010346" />
+                  <mssgle:LineSegment
+                    End="-247.472211437507,158.517541568338" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166.666666666667,42.6666666666667"
+          Id="Package\MERGE JOIN\FactResellerSales"
+          TopLeft="529.374976335094,403.28069920765" />
+        <NodeLayout
+          Size="237.333333333334,42.6666666666667"
+          Id="Package\MERGE JOIN\FactResellerSales ORDENADOS"
+          TopLeft="556.249975133688,510.368416612746" />
+        <EdgeLayout
+          Id="Package\MERGE JOIN.Paths[Salida de origen de OLE DB3]"
+          TopLeft="612.708309668427,445.947365874316">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="62.2083321319272,64.4210507384301"
+              Start="0,0"
+              End="62.2083321319272,56.9210507384301">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.210525369215" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.210525369215"
+                    Point2="0,32.210525369215"
+                    Point3="4,32.210525369215" />
+                  <mssgle:LineSegment
+                    End="58.2083321319272,32.210525369215" />
+                  <mssgle:CubicBezierSegment
+                    Point1="58.2083321319272,32.210525369215"
+                    Point2="62.2083321319272,32.210525369215"
+                    Point3="62.2083321319272,36.210525369215" />
+                  <mssgle:LineSegment
+                    End="62.2083321319272,56.9210507384301" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="189.333333333334,42.6666666666667"
+          Id="Package\MERGE JOIN\SALIDA 2 ORDENADA"
+          TopLeft="269.99998793006,521.350873474297" />
+        <EdgeLayout
+          Id="Package\MERGE JOIN.Paths[Salida de combinación de mezcla1]"
+          TopLeft="362.124987343327,476.578942838386">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.7719306359109"
+              Start="0,0"
+              End="0,37.2719306359109">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.2719306359109" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="126.666666666667,42.6666666666667"
+          Id="Package\MERGE JOIN\SALIDA 3"
+          TopLeft="449.999979883433,611.169585543124" />
+        <EdgeLayout
+          Id="Package\MERGE JOIN.Paths[Salida de ordenación2]"
+          TopLeft="364.666654596727,564.017540140963">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="148.66665862004,47.1520454021612"
+              Start="0,0"
+              End="148.66665862004,39.6520454021612">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5760227010806" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.5760227010806"
+                    Point2="0,23.5760227010806"
+                    Point3="4,23.5760227010806" />
+                  <mssgle:LineSegment
+                    End="144.66665862004,23.5760227010806" />
+                  <mssgle:CubicBezierSegment
+                    Point1="144.66665862004,23.5760227010806"
+                    Point2="148.66665862004,23.5760227010806"
+                    Point3="148.66665862004,27.5760227010806" />
+                  <mssgle:LineSegment
+                    End="148.66665862004,39.6520454021612" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\MERGE JOIN.Paths[Salida de ordenación3]"
+          TopLeft="674.916641800355,553.035083279413">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-141.80555080581,58.1345022637113"
+              Start="0,0"
+              End="-141.80555080581,50.6345022637113">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.445599054382" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.445599054382"
+                    Point2="0,34.445599054382"
+                    Point3="-4,34.445599054382" />
+                  <mssgle:LineSegment
+                    End="-137.80555080581,34.445599054382" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-137.80555080581,34.445599054382"
+                    Point2="-141.80555080581,34.445599054382"
+                    Point3="-141.80555080581,38.445599054382" />
+                  <mssgle:LineSegment
+                    End="-141.80555080581,50.6345022637113" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="194.666666666667,42.6666666666667"
+          Id="Package\MERGE JOIN\REPORTE DE VENTAS"
+          TopLeft="451.388868710234,704.210522609625" />
+        <EdgeLayout
+          Id="Package\MERGE JOIN.Paths[Salida de combinación de mezcla2]"
+          TopLeft="513.333313216767,653.836252209791">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="35.3888888268008,50.3742703998337"
+              Start="0,0"
+              End="35.3888888268008,42.8742703998337">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.1871351999168" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.1871351999168"
+                    Point2="0,25.1871351999168"
+                    Point3="4,25.1871351999168" />
+                  <mssgle:LineSegment
+                    End="31.3888888268008,25.1871351999168" />
+                  <mssgle:CubicBezierSegment
+                    Point1="31.3888888268008,25.1871351999168"
+                    Point2="35.3888888268008,25.1871351999168"
+                    Point3="35.3888888268008,29.1871351999168" />
+                  <mssgle:LineSegment
+                    End="35.3888888268008,42.8742703998337" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\MERGE JOIN\DIMPRODUCTO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\MERGE JOIN\DimProductSubcategory">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\MERGE JOIN\DimProductCategory">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\MERGE JOIN\FactResellerSales">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

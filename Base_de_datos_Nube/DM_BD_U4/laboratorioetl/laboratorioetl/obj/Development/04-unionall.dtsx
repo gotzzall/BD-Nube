@@ -1,0 +1,1646 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/10/2024 10:19:34 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="GALLARDOMSI"
+  DTS:CreatorName="GALLARDOMSI\jlgallardoadmon"
+  DTS:DTSID="{FFE04453-26A6-4F3D-B77E-70A9FF477E3D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="04-unionall"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{74606B98-5E5F-450A-B905-C587D51858A8}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CONEXION PRODUCTO 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{73B36674-0D81-4A96-A28B-317DEEF28E4F}"
+      DTS:ObjectName="CONEXION PRODUCTO 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="3082"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\uttt\bdcomputonube\practicasETL\Documentacion\02- DataFlow\04-UnionAll-Merge\5.1+Producto+1+-+UNION+ALL.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EnglishProductName"
+              DTS:DTSID="{813A038F-3F9F-444C-8023-2B877D63240C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Color"
+              DTS:DTSID="{7531E812-A18B-4657-BE6A-6FD9F5822E66}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="400"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EnglishDescription"
+              DTS:DTSID="{A652C333-55A1-4053-9C67-FAD1CAE433E4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ListPrice"
+              DTS:DTSID="{53121DD9-B805-4ADA-9B5A-0992046F96D0}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CONEXION PRODUCTO 2]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{1B9FE47F-F88B-40AA-8AE4-13C917876749}"
+      DTS:ObjectName="CONEXION PRODUCTO 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="3082"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\uttt\bdcomputonube\practicasETL\Documentacion\02- DataFlow\04-UnionAll-Merge\5.1+Producto+2+-+UNION+ALL.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EnglishProductName"
+              DTS:DTSID="{2059F368-C828-40DA-B550-810E1625B027}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Color"
+              DTS:DTSID="{706F8B0D-F636-4187-82E8-DD2A12AD3AF6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="400"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EnglishDescription"
+              DTS:DTSID="{768DC2C2-2843-46CB-BBC2-60647A8A209E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ListPrice"
+              DTS:DTSID="{DF514C4D-482C-41CF-AD11-353279D9D5D2}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CONEXION PRODUCTO 3]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{B63A605F-4802-4FDB-B65B-71A2BAA5E045}"
+      DTS:ObjectName="CONEXION PRODUCTO 3">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="3082"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\uttt\bdcomputonube\practicasETL\Documentacion\02- DataFlow\04-UnionAll-Merge\5.1+Producto+3+-+UNION+ALL.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EnglishProductName"
+              DTS:DTSID="{CE2EE54C-DBAD-4BF6-BD37-EBEF937DB788}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Color"
+              DTS:DTSID="{FF3CFB55-E089-4DA1-897B-4FB6742637B7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="400"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EnglishDescription"
+              DTS:DTSID="{BDB9C0BB-6F63-446F-A602-8CD7FBFC218B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ListPrice"
+              DTS:DTSID="{D1C5C123-920C-453F-8D5C-AB9DB651F0C4}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-FLTK6F9.STREAMING]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BA1D2865-8919-4D00-89A9-DC98122861F0}"
+      DTS:ObjectName="DESKTOP-FLTK6F9.STREAMING">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-FLTK6F9;Initial Catalog=STREAMING;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-04-unionall-{BA1D2865-8919-4D00-89A9-DC98122861F0}DESKTOP-FLTK6F9.STREAMING;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gallardomsi.STREAMING]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A684453D-1B15-413B-B24C-1762F866056F}"
+      DTS:ObjectName="Gallardomsi.STREAMING">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=Gallardomsi;Initial Catalog=STREAMING;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-04-unionall-{A684453D-1B15-413B-B24C-1762F866056F}Gallardomsi.STREAMING;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\LIMPIAR TABLA PRODUCTO"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{36A51E20-37E3-403F-BB79-05DAB4648C9B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="LIMPIAR TABLA PRODUCTO"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BA1D2865-8919-4D00-89A9-DC98122861F0}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE PRODUCTO " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\UNIONALL"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{CE6CBB27-A8B2-4AF8-90D7-AFBFF2B29A86}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="UNIONALL"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\UNIONALL\Conversión de datos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\UNIONALL\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\UNIONALL\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[EnglishProductName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EnglishProductName"
+                      lineageId="Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[EnglishProductName]" />
+                    <inputColumn
+                      refId="Package\UNIONALL\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Color]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Color"
+                      lineageId="Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Color]" />
+                    <inputColumn
+                      refId="Package\UNIONALL\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[EnglishDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="400"
+                      cachedName="EnglishDescription"
+                      lineageId="Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[EnglishDescription]" />
+                    <inputColumn
+                      refId="Package\UNIONALL\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[ListPrice]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ListPrice"
+                      lineageId="Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[ListPrice]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\UNIONALL\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\UNIONALL\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\UNIONALL\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of EnglishProductName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\UNIONALL\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of EnglishProductName]"
+                      name="Copy of EnglishProductName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[EnglishProductName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\UNIONALL\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Color]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="15"
+                      lineageId="Package\UNIONALL\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Color]"
+                      name="Copy of Color"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Color]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\UNIONALL\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of EnglishDescription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="400"
+                      lineageId="Package\UNIONALL\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of EnglishDescription]"
+                      name="Copy of EnglishDescription"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[EnglishDescription]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\UNIONALL\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of ListPrice]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\UNIONALL\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of ListPrice]"
+                      name="Copy of ListPrice"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[ListPrice]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\UNIONALL\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\UNIONALL\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\UNIONALL\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\UNIONALL\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\UNIONALL\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\UNIONALL\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\UNIONALL\PRODUCTO"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Origen de archivo plano;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen de archivo plano"
+              localeId="3082"
+              name="PRODUCTO"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si las columnas de longitud cero se tratan como NULL."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre de una columna de salida que contiene el nombre de archivo. Si no se especifica ningún nombre, no se genera ninguna columna de salida con el nombre de archivo."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\UNIONALL\PRODUCTO.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CONEXION PRODUCTO 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[CONEXION PRODUCTO 3]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\UNIONALL\PRODUCTO.Outputs[Salida de origen de archivo plano]"
+                  name="Salida de origen de archivo plano">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\UNIONALL\PRODUCTO.Outputs[Salida de origen de archivo plano].Columns[EnglishProductName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\UNIONALL\PRODUCTO.Outputs[Salida de origen de archivo plano].ExternalColumns[EnglishProductName]"
+                      length="50"
+                      lineageId="Package\UNIONALL\PRODUCTO.Outputs[Salida de origen de archivo plano].Columns[EnglishProductName]"
+                      name="EnglishProductName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\UNIONALL\PRODUCTO.Outputs[Salida de origen de archivo plano].Columns[Color]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\UNIONALL\PRODUCTO.Outputs[Salida de origen de archivo plano].ExternalColumns[Color]"
+                      length="50"
+                      lineageId="Package\UNIONALL\PRODUCTO.Outputs[Salida de origen de archivo plano].Columns[Color]"
+                      name="Color"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\UNIONALL\PRODUCTO.Outputs[Salida de origen de archivo plano].Columns[EnglishDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\UNIONALL\PRODUCTO.Outputs[Salida de origen de archivo plano].ExternalColumns[EnglishDescription]"
+                      length="400"
+                      lineageId="Package\UNIONALL\PRODUCTO.Outputs[Salida de origen de archivo plano].Columns[EnglishDescription]"
+                      name="EnglishDescription"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\UNIONALL\PRODUCTO.Outputs[Salida de origen de archivo plano].Columns[ListPrice]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\UNIONALL\PRODUCTO.Outputs[Salida de origen de archivo plano].ExternalColumns[ListPrice]"
+                      length="50"
+                      lineageId="Package\UNIONALL\PRODUCTO.Outputs[Salida de origen de archivo plano].Columns[ListPrice]"
+                      name="ListPrice"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\UNIONALL\PRODUCTO.Outputs[Salida de origen de archivo plano].ExternalColumns[EnglishProductName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EnglishProductName" />
+                    <externalMetadataColumn
+                      refId="Package\UNIONALL\PRODUCTO.Outputs[Salida de origen de archivo plano].ExternalColumns[Color]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Color" />
+                    <externalMetadataColumn
+                      refId="Package\UNIONALL\PRODUCTO.Outputs[Salida de origen de archivo plano].ExternalColumns[EnglishDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="400"
+                      name="EnglishDescription" />
+                    <externalMetadataColumn
+                      refId="Package\UNIONALL\PRODUCTO.Outputs[Salida de origen de archivo plano].ExternalColumns[ListPrice]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ListPrice" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\UNIONALL\PRODUCTO.Outputs[Salida de error de origen de archivo plano]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de archivo plano">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\UNIONALL\PRODUCTO.Outputs[Salida de error de origen de archivo plano].Columns[Columna de salida de error de origen de archivo plano]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Columna de salida de error de origen de archivo plano"
+                      lineageId="Package\UNIONALL\PRODUCTO.Outputs[Salida de error de origen de archivo plano].Columns[Columna de salida de error de origen de archivo plano]"
+                      name="Columna de salida de error de origen de archivo plano" />
+                    <outputColumn
+                      refId="Package\UNIONALL\PRODUCTO.Outputs[Salida de error de origen de archivo plano].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\UNIONALL\PRODUCTO.Outputs[Salida de error de origen de archivo plano].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\UNIONALL\PRODUCTO.Outputs[Salida de error de origen de archivo plano].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\UNIONALL\PRODUCTO.Outputs[Salida de error de origen de archivo plano].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\UNIONALL\PRODUCTO 1"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Origen de archivo plano;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen de archivo plano"
+              localeId="3082"
+              name="PRODUCTO 1"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si las columnas de longitud cero se tratan como NULL."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre de una columna de salida que contiene el nombre de archivo. Si no se especifica ningún nombre, no se genera ninguna columna de salida con el nombre de archivo."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\UNIONALL\PRODUCTO 1.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CONEXION PRODUCTO 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[CONEXION PRODUCTO 1]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de origen de archivo plano]"
+                  name="Salida de origen de archivo plano">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de origen de archivo plano].Columns[EnglishProductName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de origen de archivo plano].ExternalColumns[EnglishProductName]"
+                      length="50"
+                      lineageId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de origen de archivo plano].Columns[EnglishProductName]"
+                      name="EnglishProductName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de origen de archivo plano].Columns[Color]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de origen de archivo plano].ExternalColumns[Color]"
+                      length="50"
+                      lineageId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de origen de archivo plano].Columns[Color]"
+                      name="Color"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de origen de archivo plano].Columns[EnglishDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de origen de archivo plano].ExternalColumns[EnglishDescription]"
+                      length="400"
+                      lineageId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de origen de archivo plano].Columns[EnglishDescription]"
+                      name="EnglishDescription"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de origen de archivo plano].Columns[ListPrice]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de origen de archivo plano].ExternalColumns[ListPrice]"
+                      length="50"
+                      lineageId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de origen de archivo plano].Columns[ListPrice]"
+                      name="ListPrice"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de origen de archivo plano].ExternalColumns[EnglishProductName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EnglishProductName" />
+                    <externalMetadataColumn
+                      refId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de origen de archivo plano].ExternalColumns[Color]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Color" />
+                    <externalMetadataColumn
+                      refId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de origen de archivo plano].ExternalColumns[EnglishDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="400"
+                      name="EnglishDescription" />
+                    <externalMetadataColumn
+                      refId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de origen de archivo plano].ExternalColumns[ListPrice]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ListPrice" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de error de origen de archivo plano]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de archivo plano">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de error de origen de archivo plano].Columns[Columna de salida de error de origen de archivo plano]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Columna de salida de error de origen de archivo plano"
+                      lineageId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de error de origen de archivo plano].Columns[Columna de salida de error de origen de archivo plano]"
+                      name="Columna de salida de error de origen de archivo plano" />
+                    <outputColumn
+                      refId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de error de origen de archivo plano].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de error de origen de archivo plano].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de error de origen de archivo plano].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de error de origen de archivo plano].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\UNIONALL\PRODUCTO2"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Origen de archivo plano;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen de archivo plano"
+              localeId="3082"
+              name="PRODUCTO2"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si las columnas de longitud cero se tratan como NULL."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre de una columna de salida que contiene el nombre de archivo. Si no se especifica ningún nombre, no se genera ninguna columna de salida con el nombre de archivo."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\UNIONALL\PRODUCTO2.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CONEXION PRODUCTO 2]"
+                  connectionManagerRefId="Package.ConnectionManagers[CONEXION PRODUCTO 2]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de origen de archivo plano]"
+                  name="Salida de origen de archivo plano">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de origen de archivo plano].Columns[EnglishProductName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de origen de archivo plano].ExternalColumns[EnglishProductName]"
+                      length="50"
+                      lineageId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de origen de archivo plano].Columns[EnglishProductName]"
+                      name="EnglishProductName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de origen de archivo plano].Columns[Color]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de origen de archivo plano].ExternalColumns[Color]"
+                      length="50"
+                      lineageId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de origen de archivo plano].Columns[Color]"
+                      name="Color"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de origen de archivo plano].Columns[EnglishDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de origen de archivo plano].ExternalColumns[EnglishDescription]"
+                      length="400"
+                      lineageId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de origen de archivo plano].Columns[EnglishDescription]"
+                      name="EnglishDescription"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de origen de archivo plano].Columns[ListPrice]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de origen de archivo plano].ExternalColumns[ListPrice]"
+                      length="50"
+                      lineageId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de origen de archivo plano].Columns[ListPrice]"
+                      name="ListPrice"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de origen de archivo plano].ExternalColumns[EnglishProductName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EnglishProductName" />
+                    <externalMetadataColumn
+                      refId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de origen de archivo plano].ExternalColumns[Color]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Color" />
+                    <externalMetadataColumn
+                      refId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de origen de archivo plano].ExternalColumns[EnglishDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="400"
+                      name="EnglishDescription" />
+                    <externalMetadataColumn
+                      refId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de origen de archivo plano].ExternalColumns[ListPrice]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ListPrice" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de error de origen de archivo plano]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de archivo plano">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de error de origen de archivo plano].Columns[Columna de salida de error de origen de archivo plano]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Columna de salida de error de origen de archivo plano"
+                      lineageId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de error de origen de archivo plano].Columns[Columna de salida de error de origen de archivo plano]"
+                      name="Columna de salida de error de origen de archivo plano" />
+                    <outputColumn
+                      refId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de error de origen de archivo plano].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de error de origen de archivo plano].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de error de origen de archivo plano].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de error de origen de archivo plano].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\UNIONALL\TABLA PRODUCTO"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="TABLA PRODUCTO"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[Producto]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\UNIONALL\TABLA PRODUCTO.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Gallardomsi.STREAMING]"
+                  connectionManagerRefId="Package.ConnectionManagers[Gallardomsi.STREAMING]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\UNIONALL\TABLA PRODUCTO.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\UNIONALL\TABLA PRODUCTO.Inputs[Entrada de destino de OLE DB].Columns[Copy of EnglishProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of EnglishProductName"
+                      externalMetadataColumnId="Package\UNIONALL\TABLA PRODUCTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[EnglishProductName]"
+                      lineageId="Package\UNIONALL\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of EnglishProductName]" />
+                    <inputColumn
+                      refId="Package\UNIONALL\TABLA PRODUCTO.Inputs[Entrada de destino de OLE DB].Columns[Copy of Color]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Copy of Color"
+                      externalMetadataColumnId="Package\UNIONALL\TABLA PRODUCTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[Color]"
+                      lineageId="Package\UNIONALL\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of Color]" />
+                    <inputColumn
+                      refId="Package\UNIONALL\TABLA PRODUCTO.Inputs[Entrada de destino de OLE DB].Columns[Copy of EnglishDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="400"
+                      cachedName="Copy of EnglishDescription"
+                      externalMetadataColumnId="Package\UNIONALL\TABLA PRODUCTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[EnglishDescription]"
+                      lineageId="Package\UNIONALL\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of EnglishDescription]" />
+                    <inputColumn
+                      refId="Package\UNIONALL\TABLA PRODUCTO.Inputs[Entrada de destino de OLE DB].Columns[Copy of ListPrice]"
+                      cachedDataType="cy"
+                      cachedName="Copy of ListPrice"
+                      externalMetadataColumnId="Package\UNIONALL\TABLA PRODUCTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[ListPrice]"
+                      lineageId="Package\UNIONALL\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of ListPrice]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\UNIONALL\TABLA PRODUCTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[EnglishProductName]"
+                      dataType="wstr"
+                      length="50"
+                      name="EnglishProductName" />
+                    <externalMetadataColumn
+                      refId="Package\UNIONALL\TABLA PRODUCTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[Color]"
+                      dataType="wstr"
+                      length="15"
+                      name="Color" />
+                    <externalMetadataColumn
+                      refId="Package\UNIONALL\TABLA PRODUCTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[EnglishDescription]"
+                      dataType="wstr"
+                      length="400"
+                      name="EnglishDescription" />
+                    <externalMetadataColumn
+                      refId="Package\UNIONALL\TABLA PRODUCTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[ListPrice]"
+                      dataType="cy"
+                      name="ListPrice" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\UNIONALL\TABLA PRODUCTO.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\UNIONALL\TABLA PRODUCTO.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\UNIONALL\TABLA PRODUCTO.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\UNIONALL\TABLA PRODUCTO.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\UNIONALL\TABLA PRODUCTO.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\UNIONALL\TABLA PRODUCTO.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\UNIONALL\Unión de todo"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Unión de todo;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Combina las filas de varios flujos de datos sin ordenarlos. Por ejemplo, devuelve filas a un flujo de datos después de corregir los errores. Si el orden es importante, se recomienda usar la transformación Mezclar."
+              name="Unión de todo"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\UNIONALL\Unión de todo.Inputs[Entrada de Unión de todo 4]"
+                  hasSideEffects="true"
+                  name="Entrada de Unión de todo 4">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\UNIONALL\Unión de todo.Inputs[Entrada de Unión de todo 4].Columns[EnglishProductName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EnglishProductName"
+                      lineageId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de origen de archivo plano].Columns[EnglishProductName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[EnglishProductName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\UNIONALL\Unión de todo.Inputs[Entrada de Unión de todo 4].Columns[Color]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Color"
+                      lineageId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de origen de archivo plano].Columns[Color]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Color]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\UNIONALL\Unión de todo.Inputs[Entrada de Unión de todo 4].Columns[ListPrice]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ListPrice"
+                      lineageId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de origen de archivo plano].Columns[ListPrice]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[ListPrice]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\UNIONALL\Unión de todo.Inputs[Entrada de Unión de todo 4].Columns[EnglishDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="400"
+                      cachedName="EnglishDescription"
+                      lineageId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de origen de archivo plano].Columns[EnglishDescription]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[EnglishDescription]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\UNIONALL\Unión de todo.Inputs[Entrada de Unión de todo 1]"
+                  hasSideEffects="true"
+                  name="Entrada de Unión de todo 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\UNIONALL\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[EnglishProductName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EnglishProductName"
+                      lineageId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de origen de archivo plano].Columns[EnglishProductName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[EnglishProductName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\UNIONALL\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[Color]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Color"
+                      lineageId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de origen de archivo plano].Columns[Color]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Color]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\UNIONALL\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[ListPrice]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ListPrice"
+                      lineageId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de origen de archivo plano].Columns[ListPrice]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[ListPrice]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\UNIONALL\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[EnglishDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="400"
+                      cachedName="EnglishDescription"
+                      lineageId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de origen de archivo plano].Columns[EnglishDescription]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[EnglishDescription]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\UNIONALL\Unión de todo.Inputs[Entrada de Unión de todo 2]"
+                  hasSideEffects="true"
+                  name="Entrada de Unión de todo 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\UNIONALL\Unión de todo.Inputs[Entrada de Unión de todo 2].Columns[EnglishProductName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EnglishProductName"
+                      lineageId="Package\UNIONALL\PRODUCTO.Outputs[Salida de origen de archivo plano].Columns[EnglishProductName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[EnglishProductName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\UNIONALL\Unión de todo.Inputs[Entrada de Unión de todo 2].Columns[Color]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Color"
+                      lineageId="Package\UNIONALL\PRODUCTO.Outputs[Salida de origen de archivo plano].Columns[Color]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Color]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\UNIONALL\Unión de todo.Inputs[Entrada de Unión de todo 2].Columns[ListPrice]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ListPrice"
+                      lineageId="Package\UNIONALL\PRODUCTO.Outputs[Salida de origen de archivo plano].Columns[ListPrice]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[ListPrice]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\UNIONALL\Unión de todo.Inputs[Entrada de Unión de todo 2].Columns[EnglishDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="400"
+                      cachedName="EnglishDescription"
+                      lineageId="Package\UNIONALL\PRODUCTO.Outputs[Salida de origen de archivo plano].Columns[EnglishDescription]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[EnglishDescription]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\UNIONALL\Unión de todo.Inputs[Entrada de Unión de todo 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Entrada de Unión de todo 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1]"
+                  name="Salida de Unión de todo 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[EnglishProductName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[EnglishProductName]"
+                      name="EnglishProductName" />
+                    <outputColumn
+                      refId="Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Color]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Color]"
+                      name="Color" />
+                    <outputColumn
+                      refId="Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[EnglishDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="400"
+                      lineageId="Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[EnglishDescription]"
+                      name="EnglishDescription" />
+                    <outputColumn
+                      refId="Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[ListPrice]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[ListPrice]"
+                      name="ListPrice" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\UNIONALL.Paths[Salida de conversión de datos]"
+              endId="Package\UNIONALL\TABLA PRODUCTO.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de conversión de datos"
+              startId="Package\UNIONALL\Conversión de datos.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\UNIONALL.Paths[Salida de origen de archivo plano]"
+              endId="Package\UNIONALL\Unión de todo.Inputs[Entrada de Unión de todo 4]"
+              name="Salida de origen de archivo plano"
+              startId="Package\UNIONALL\PRODUCTO 1.Outputs[Salida de origen de archivo plano]" />
+            <path
+              refId="Package\UNIONALL.Paths[Salida de origen de archivo plano1]"
+              endId="Package\UNIONALL\Unión de todo.Inputs[Entrada de Unión de todo 1]"
+              name="Salida de origen de archivo plano"
+              startId="Package\UNIONALL\PRODUCTO2.Outputs[Salida de origen de archivo plano]" />
+            <path
+              refId="Package\UNIONALL.Paths[Salida de origen de archivo plano2]"
+              endId="Package\UNIONALL\Unión de todo.Inputs[Entrada de Unión de todo 2]"
+              name="Salida de origen de archivo plano"
+              startId="Package\UNIONALL\PRODUCTO.Outputs[Salida de origen de archivo plano]" />
+            <path
+              refId="Package\UNIONALL.Paths[Salida de Unión de todo 1]"
+              endId="Package\UNIONALL\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              name="Salida de Unión de todo 1"
+              startId="Package\UNIONALL\Unión de todo.Outputs[Salida de Unión de todo 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{65F067A4-BDC4-4489-98A5-4EC2D750123B}"
+      DTS:From="Package\LIMPIAR TABLA PRODUCTO"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\UNIONALL" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="222.4,42.4"
+          Id="Package\LIMPIAR TABLA PRODUCTO"
+          TopLeft="262.499988265336,30.7894733461482" />
+        <NodeLayout
+          Size="133.6,42.4"
+          Id="Package\UNIONALL"
+          TopLeft="316.249985862524,138.894735317069" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="373.833321598669,73.4561400128149">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.0833309305213,65.4385953042537"
+              Start="0,0"
+              End="9.0833309305213,57.9385953042537">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.7192976521268" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.7192976521268"
+                    Point2="0,32.7192976521268"
+                    Point3="4,32.7192976521268" />
+                  <mssgle:LineSegment
+                    End="5.0833309305213,32.7192976521268" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.0833309305213,32.7192976521268"
+                    Point2="9.0833309305213,32.7192976521268"
+                    Point3="9.0833309305213,36.7192976521268" />
+                  <mssgle:LineSegment
+                    End="9.0833309305213,57.9385953042537" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\UNIONALL">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,42.4"
+          Id="Package\UNIONALL\PRODUCTO 1"
+          TopLeft="32.4999985471368,38.3157890529844" />
+        <NodeLayout
+          Size="177.6,42.4"
+          Id="Package\UNIONALL\TABLA PRODUCTO"
+          TopLeft="334.374985052273,337.999996288827" />
+        <NodeLayout
+          Size="141.6,42.4"
+          Id="Package\UNIONALL\PRODUCTO"
+          TopLeft="572.499974407256,47.2105257974272" />
+        <NodeLayout
+          Size="146.4,42.4"
+          Id="Package\UNIONALL\PRODUCTO2"
+          TopLeft="361.249983850867,30.7894733461482" />
+        <NodeLayout
+          Size="145.6,42.4"
+          Id="Package\UNIONALL\Unión de todo"
+          TopLeft="340.624984772876,156.684208805954" />
+        <NodeLayout
+          Size="177.6,42.4"
+          Id="Package\UNIONALL\Conversión de datos"
+          TopLeft="337.499984912575,247.105261542708" />
+        <EdgeLayout
+          Id="Package\UNIONALL.Paths[Salida de Unión de todo 1]"
+          TopLeft="413.291651439543,199.350875472621">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.8750001396986,47.7543860700873"
+              Start="0,0"
+              End="12.8750001396986,40.2543860700873">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.8771930350437" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.8771930350437"
+                    Point2="0,23.8771930350437"
+                    Point3="4,23.8771930350437" />
+                  <mssgle:LineSegment
+                    End="8.87500013969856,23.8771930350437" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.87500013969856,23.8771930350437"
+                    Point2="12.8750001396986,23.8771930350437"
+                    Point3="12.8750001396986,27.8771930350437" />
+                  <mssgle:LineSegment
+                    End="12.8750001396986,40.2543860700873" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\UNIONALL.Paths[Salida de origen de archivo plano2]"
+          TopLeft="643.166641073923,89.8771924640939">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-195.541656301047,66.8070163418601"
+              Start="0,0"
+              End="-195.541656301047,59.3070163418601">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.7355242117883" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.7355242117883"
+                    Point2="0,43.7355242117883"
+                    Point3="-4,43.7355242117883" />
+                  <mssgle:LineSegment
+                    End="-191.541656301047,43.7355242117883" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-191.541656301047,43.7355242117883"
+                    Point2="-195.541656301047,43.7355242117883"
+                    Point3="-195.541656301047,47.7355242117883" />
+                  <mssgle:LineSegment
+                    End="-195.541656301047,59.3070163418601" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\UNIONALL.Paths[Salida de origen de archivo plano1]"
+          TopLeft="434.5833171842,73.4561400128149">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-21.2916657446574,83.2280687931392"
+              Start="0,0"
+              End="-21.2916657446574,75.7280687931392">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.6140343965696" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.6140343965696"
+                    Point2="0,41.6140343965696"
+                    Point3="-4,41.6140343965696" />
+                  <mssgle:LineSegment
+                    End="-17.2916657446574,41.6140343965696" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-17.2916657446574,41.6140343965696"
+                    Point2="-21.2916657446574,41.6140343965696"
+                    Point3="-21.2916657446574,45.6140343965696" />
+                  <mssgle:LineSegment
+                    End="-21.2916657446574,75.7280687931392" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\UNIONALL.Paths[Salida de origen de archivo plano]"
+          TopLeft="107.166665213803,80.9824557196511">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="271.791652892406,75.701753086303"
+              Start="0,0"
+              End="271.791652892406,68.201753086303">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.5585050234656" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45.5585050234656"
+                    Point2="0,49.5585050234656"
+                    Point3="4,49.5585050234656" />
+                  <mssgle:LineSegment
+                    End="267.791652892406,49.5585050234656" />
+                  <mssgle:CubicBezierSegment
+                    Point1="267.791652892406,49.5585050234656"
+                    Point2="271.791652892406,49.5585050234656"
+                    Point3="271.791652892406,53.5585050234656" />
+                  <mssgle:LineSegment
+                    End="271.791652892406,68.201753086303" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\UNIONALL.Paths[Salida de conversión de datos]"
+          TopLeft="424.604151649091,289.771928209375">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.2280680794521"
+              Start="0,0"
+              End="0,40.7280680794521">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.7280680794521" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\UNIONALL\TABLA PRODUCTO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
